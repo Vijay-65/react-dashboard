@@ -1,26 +1,36 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Box, Grid, Container, Paper, Typography, TextField, InputAdornment, IconButton, FormGroup, FormControlLabel, Checkbox, Button } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  InputAdornment,
+  IconButton,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  Button,
+} from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import motologo from "../assets/Highmark-Stadium-New-York-Logo (1).png";
 import LockIcon from "@mui/icons-material/Lock";
-import PersonIcon from '@mui/icons-material/Person';
-import img from '../assets/pexels-photo-2246476.jpeg'
 
+import img from "../assets/pexels-photo-2246476.jpeg";
+import PersonIcon from "@mui/icons-material/Person";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const SignUp = () => {
+  // fro password, we changing the state of icons
+  const [showPassword, setShowPassword] = useState(false);
 
-
-     // fro password, we changing the state of icons
-    const [showPassword, setShowPassword] = useState(false);
-    
-    const handleTogglePassword = () => {
-      setShowPassword((prev) => !prev);
-    };
-
-
-
+  const handleTogglePassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   return (
     <>
@@ -155,8 +165,7 @@ const SignUp = () => {
       </Grid>
     </Box> */}
 
-
-<Box
+      <Box
         sx={{
           minHeight: "100vh",
           width: "100%",
@@ -167,8 +176,7 @@ const SignUp = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           position: "relative",
-        }}
-      >
+        }}>
         {/* Background Overlay for Opacity */}
         <Box
           sx={{
@@ -184,7 +192,7 @@ const SignUp = () => {
 
         {/* Signup Form Content */}
         <Box sx={{ position: "relative", zIndex: 2, width: "100%" }}>
-          <Container style={{maxWidth:530}} >
+          <Container style={{ maxWidth: 530 }}>
             <Paper elevation={3} sx={{ padding: 6 }}>
               <Box textAlign="center" mb={3}>
                 <img
@@ -204,10 +212,10 @@ const SignUp = () => {
                 </Typography>
               </Box>
 
-              {/* Username Field */}
+              {/* First Name */}
               <TextField
-                label="Username"
-                placeholder="Enter Username"
+                label="First Name"
+                placeholder="Enter First Name"
                 fullWidth
                 margin="normal"
                 color="primary"
@@ -217,6 +225,65 @@ const SignUp = () => {
                     startAdornment: (
                       <InputAdornment position="start">
                         <PersonIcon />
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+              />
+
+              {/* Last Name */}
+              <TextField
+                label="Last Name"
+                placeholder="Enter Last Name"
+                fullWidth
+                margin="normal"
+                color="primary"
+                required
+                slotProps={{
+                  input: {
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <PersonIcon />
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+              />
+
+              {/* Email ID */}
+              <TextField
+                label="Email ID"
+                placeholder="Enter Email"
+                type="email"
+                fullWidth
+                margin="normal"
+                color="primary"
+                required
+                slotProps={{
+                  input: {
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <EmailIcon />
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+              />
+
+              {/* Mobile Number */}
+              <TextField
+                label="Mobile Number"
+                placeholder="Enter Mobile Number"
+                type="tel"
+                fullWidth
+                margin="normal"
+                color="primary"
+                required
+                slotProps={{
+                  input: {
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <PhoneIcon />
                       </InputAdornment>
                     ),
                   },
@@ -250,6 +317,33 @@ const SignUp = () => {
                 }}
               />
 
+              {/* Password Field with Toggle */}
+              <TextField
+                label="Password"
+                placeholder="Confirm Password"
+                type={showPassword ? "text" : "password"}
+                fullWidth
+                margin="normal"
+                color="primary"
+                required
+                slotProps={{
+                  input: {
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <LockIcon />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={handleTogglePassword} edge="end">
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  },
+                }}
+              />
+
               {/* Remember Me & Forgot Password */}
               <FormGroup
                 sx={{
@@ -258,8 +352,7 @@ const SignUp = () => {
                   justifyContent: "space-between",
                   alignItems: "center",
                   mt: 2,
-                }}
-              >
+                }}>
                 <FormControlLabel
                   control={<Checkbox defaultChecked color="primary" />}
                   label="Remember me"
@@ -268,8 +361,7 @@ const SignUp = () => {
                   variant="body2"
                   component={Link}
                   to="/"
-                  style={{ textDecoration: "none", color: "black" }}
-                >
+                  style={{ textDecoration: "none", color: "black" }}>
                   Forgot password?
                 </Typography>
               </FormGroup>
@@ -281,9 +373,8 @@ const SignUp = () => {
                   color="primary"
                   sx={{ mt: 1, minWidth: 100 }}
                   component={Link}
-                  to="/dashboard"
-                >
-                  Login
+                  to="/dashboard">
+                  Sign In
                 </Button>
                 <br />
                 <br />
@@ -296,8 +387,6 @@ const SignUp = () => {
           </Container>
         </Box>
       </Box>
-
-
     </>
   );
 };
