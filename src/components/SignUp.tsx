@@ -26,8 +26,7 @@ import img from "../assets/pexels-photo-2246476.jpeg";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
-import { blue } from "@mui/material/colors";
-import { Navigate } from "react-router-dom";
+
 
 const SignUp = () => {
   // fro password, we changing the state of icons
@@ -37,6 +36,7 @@ const SignUp = () => {
     setShowPassword((prev) => !prev);
   };
 
+  // Its for navigate to signup page when cli
   const navigate = useNavigate();
 
   return (
