@@ -39,15 +39,18 @@ const Login = () => {
 
   const handleLogin = () => {
 
+    
     // Simple validation logic for demonstration
-    if (!email || !password) {
-      toast.error("Please fill in both fields.", {
+    if (!email && !password) {
+      toast.error(" Fill in both fields.", {
         position: "top-right",
         autoClose: 3000,
         transition: Bounce,
       });
       return;
     }
+    if (!email) return toast.error(" Enter your Email.");
+    if (!password) return toast.error(" Enter your password.");
 
     if (email === "admin" && password === "admin") {
       toast.success("Login successful!", {

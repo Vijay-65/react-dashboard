@@ -1,7 +1,6 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
-  Grid,
   Container,
   Paper,
   Typography,
@@ -13,7 +12,7 @@ import {
   Checkbox,
   Button,
 } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -30,7 +29,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
-  // fro password, we changing the state of icons
+  // fro password, we changing the state of iconsuseState
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePassword = () => {
@@ -39,7 +38,6 @@ const SignUp = () => {
 
   // Its for navigate to signup page when cli
   const navigate = useNavigate();
-
 
   // Its for validation all the labels ( toast notification )
   const [firstName, setFirstName] = useState("");
@@ -51,23 +49,22 @@ const SignUp = () => {
 
   const handleSubmit = () => {
     if (!firstName) return toast.error("Please enter your first name.");
-    if (!lastName) return toast.error("Please enter your last name.");
+    if (!lastName) return toast.error("Please enuseStateter your last name.");
     if (!email) return toast.error("Please enter your email.");
     if (!phone) return toast.error("Please enter your mobile number.");
     if (!password) return toast.error("Please enter your password.");
     if (!confirmPassword) return toast.error("Please confirm your password.");
-    if (password !== confirmPassword) return toast.error("Passwords do not match.");
-  
+    if (password !== confirmPassword)
+      return toast.error("Passwords do not match.");
+
     // If all good:
     toast.success("Sign Up Successful!");
-       navigate("/dashboard"); // optional redirect
+    navigate("/dashboard"); // optional redirect
   };
-
-
 
   return (
     <>
-    <ToastContainer />
+      <ToastContainer />
       <Box
         sx={{
           minHeight: "100vh",
@@ -102,7 +99,7 @@ const SignUp = () => {
                 padding: 6,
                 display: "flex",
                 flexDirection: { xs: "column", md: "row" },
-                alignItems: "center",
+                alignItems: "centeronChange",
                 justifyContent: "center",
                 gap: 4,
 
@@ -123,14 +120,14 @@ const SignUp = () => {
                   justifyContent: "center",
                   width: "100%",
                 }}>
-                <img 
+                <img
                   src={motologo}
                   alt="Moto Logo"
                   style={{
                     width: "100%",
                     maxWidth: "500px",
                     height: "auto",
-                    paddingBottom:"100px",
+                    paddingBottom: "100px",
                     display: "block",
                     margin: "0 auto",
                   }}
@@ -148,7 +145,6 @@ const SignUp = () => {
                 <Typography variant="h5" mt={2}>
                   Sign up
                 </Typography>
-
                 {/* First Name */}
                 <TextField
                   label="First Name"
@@ -157,7 +153,7 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
-                  value={firstName}  // toast notification
+                  value={firstName} // toast notification
                   onChange={(e) => setFirstName(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
@@ -169,7 +165,6 @@ const SignUp = () => {
                     },
                   }}
                 />
-
                 {/* Last Name */}
                 <TextField
                   label="Last Name"
@@ -178,7 +173,7 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
-                  value={lastName}  // toast notification
+                  value={lastName} // toast notification
                   onChange={(e) => setLastName(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
@@ -190,7 +185,6 @@ const SignUp = () => {
                     },
                   }}
                 />
-
                 {/* Email ID */}
                 <TextField
                   label="Email ID"
@@ -200,7 +194,7 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
-                  value={email}  // toast notification
+                  value={email} // toast notification
                   onChange={(e) => setEmail(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
@@ -212,7 +206,6 @@ const SignUp = () => {
                     },
                   }}
                 />
-
                 {/* Mobile Number */}
                 <TextField
                   label="Mobile Number"
@@ -222,7 +215,7 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
-                  value={phone}  // toast notification
+                  value={phone} // toast notification
                   onChange={(e) => setPhone(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
@@ -234,7 +227,6 @@ const SignUp = () => {
                     },
                   }}
                 />
-
                 {/* Password Field with Toggle */}
                 <TextField
                   label="Password"
@@ -244,7 +236,7 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
-                  value={password}  // toast notification
+                  value={password} // toast notification
                   onChange={(e) => setPassword(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
@@ -263,7 +255,6 @@ const SignUp = () => {
                     },
                   }}
                 />
-
                 {/* Password Field with Toggle */}
                 <TextField
                   label="Password"
@@ -273,7 +264,7 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
-                  value={confirmPassword}  // toast notification
+                  value={confirmPassword} // toast notification
                   onChange={(e) => setConfirmPassword(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
@@ -292,7 +283,6 @@ const SignUp = () => {
                     },
                   }}
                 />
-
                 {/* Remember Me & Forgot Password */}
                 <FormGroup
                   sx={{
@@ -314,7 +304,6 @@ const SignUp = () => {
                     Forgot password?
                   </Typography>
                 </FormGroup>
-
                 {/* Login Button + Register Link */}
                 <Typography variant="body2" align="center" mt={2}>
                   <Button
@@ -327,37 +316,34 @@ const SignUp = () => {
                     Sign In
                   </Button>
                   <br />
-                  
                 </Typography>
-
                 <Box mt={2} display="flex" justifyContent="center" gap={2}>
                   {/* Google Login */}
                   <IconButton>
-                    
                     {/*onClick={handleGoogleLogin}> */}
                     <GoogleIcon />
                   </IconButton>
 
                   {/* Facebook Login */}
                   <IconButton>
-                    
                     {/* onClick={handleFacebookLogin}>  */}
                     <FacebookIcon />
                   </IconButton>
 
                   {/* Twitter Login */}
                   <IconButton>
-                  
                     {/* onClick={handleTwitterLogin}>  */}
                     <TwitterIcon />
                   </IconButton>
                 </Box>
                 <br />
-                  Have an account?{" "}
-                  <Link to="/"  style={{ textDecoration: "none" }} onClick={()=>navigate("/")}>
-                    Login
-                  </Link>
-
+                Have an account?{" "}
+                <Link
+                  to="/"
+                  style={{ textDecoration: "none" }}
+                  onClick={() => navigate("/")}>
+                  Login
+                </Link>
               </Box>
             </Paper>
           </Container>

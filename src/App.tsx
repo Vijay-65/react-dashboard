@@ -11,6 +11,7 @@ import SignUp from "./components/SignUp";
 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "./components/Footer";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -21,18 +22,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-
-
-
-
-
-
-
-
-
 function App() {
-
-
   const location = useLocation();
 
   // 🔥 Hide MiniDrawer and layout only on login page ("/")
@@ -68,11 +58,11 @@ function App() {
       <Box sx={{ display: "flex" }}>
         <MiniDrawer />
 
-        <Box sx={{ flexGrow: 1, p: 3 }}>
+        <Box sx={{ flexGrow: 1, p: 3 , flexDirection:"column" }}>
           <DrawerHeader />
           {/* <MiniDrawer/> */}
-
-          <Routes>
+          <Box component={"div"}>
+            <Routes>
             <Route path={"/"} element={<Login />}></Route>
 
             <Route path={"/dashboard"} element={<Home />}></Route>
@@ -80,10 +70,17 @@ function App() {
             <Route path={"/notifications"} element={<Notifications />}></Route>
             <Route path={"/settings"} element={<Settings />}></Route>
             <Route path={"/analytics"} element={<Analytics />}></Route>
+            
           </Routes>
+          </Box>
+
+        <Box flexGrow={1} minHeight={"100vh"}></Box>
+          <Box>
+          
+            <Footer/>
+          </Box>
         </Box>
       </Box>
-      
     </>
   );
 }

@@ -241,10 +241,6 @@ export default function MiniDrawer() {
               alt="Logo"
               style={{ width: "auto", maxHeight:70 , marginRight: 8, padding:10}} // tweak size here
             />
-
-            <Typography variant="h6" noWrap component="div">
-              Airbnb
-            </Typography>
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
