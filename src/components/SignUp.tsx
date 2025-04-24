@@ -26,7 +26,8 @@ import img from "../assets/pexels-photo-2246476.jpeg";
 import PersonIcon from "@mui/icons-material/Person";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   // fro password, we changing the state of icons
@@ -39,8 +40,34 @@ const SignUp = () => {
   // Its for navigate to signup page when cli
   const navigate = useNavigate();
 
+
+  // Its for validation all the labels ( toast notification )
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = () => {
+    if (!firstName) return toast.error("Please enter your first name.");
+    if (!lastName) return toast.error("Please enter your last name.");
+    if (!email) return toast.error("Please enter your email.");
+    if (!phone) return toast.error("Please enter your mobile number.");
+    if (!password) return toast.error("Please enter your password.");
+    if (!confirmPassword) return toast.error("Please confirm your password.");
+    if (password !== confirmPassword) return toast.error("Passwords do not match.");
+  
+    // If all good:
+    toast.success("Sign Up Successful!");
+       navigate("/dashboard"); // optional redirect
+  };
+
+
+
   return (
     <>
+    <ToastContainer />
       <Box
         sx={{
           minHeight: "100vh",
@@ -96,20 +123,20 @@ const SignUp = () => {
                   justifyContent: "center",
                   width: "100%",
                 }}>
-                <img
+                <img 
                   src={motologo}
                   alt="Moto Logo"
                   style={{
                     width: "100%",
                     maxWidth: "500px",
                     height: "auto",
-                    paddingBottom: "100px",
+                    paddingBottom:"100px",
                     display: "block",
                     margin: "0 auto",
                   }}
                 />
               </Box>
-              <Box flexGrow={1}></Box>
+              <Box flexGrow={0}></Box>
 
               <Box
                 maxWidth={400}
@@ -130,6 +157,8 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
+                  value={firstName}  // toast notification
+                  onChange={(e) => setFirstName(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
                       startAdornment: (
@@ -149,6 +178,8 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
+                  value={lastName}  // toast notification
+                  onChange={(e) => setLastName(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
                       startAdornment: (
@@ -169,6 +200,8 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
+                  value={email}  // toast notification
+                  onChange={(e) => setEmail(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
                       startAdornment: (
@@ -189,6 +222,8 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
+                  value={phone}  // toast notification
+                  onChange={(e) => setPhone(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
                       startAdornment: (
@@ -209,6 +244,8 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
+                  value={password}  // toast notification
+                  onChange={(e) => setPassword(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
                       startAdornment: (
@@ -236,6 +273,8 @@ const SignUp = () => {
                   margin="normal"
                   color="primary"
                   required
+                  value={confirmPassword}  // toast notification
+                  onChange={(e) => setConfirmPassword(e.target.value)} // track the inputs for toast notification
                   slotProps={{
                     input: {
                       startAdornment: (
@@ -282,8 +321,9 @@ const SignUp = () => {
                     variant="contained"
                     color="primary"
                     sx={{ mt: 1, minWidth: 100 }}
-                    component={Link}
-                    to="/dashboard">
+                    // component={Link}
+                    // to="/dashboard">
+                    onClick={handleSubmit}>
                     Sign In
                   </Button>
                   <br />
