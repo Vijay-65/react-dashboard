@@ -1,33 +1,42 @@
 import Typography from "@mui/material/Typography";
 import SimpleAlert from "../others/SimpleAlert";
-import { styled } from '@mui/material/styles';
-import { Paper, Box, Grid, Accordion, Stack } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import {
+  Paper,
+  Box,
+  Grid,
+  Accordion,
+  Stack,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+} from "@mui/material";
 import ReviewCard from "../others/Card";
 import CustomizedTables from "../others/Table";
 import AccordionUsage from "../others/Accordion";
 import SelectActionCard from "../others/SelectActionCard";
-
-
-
+import MediaCard from "../others/MediaCard";
+import AdsClickIcon from "@mui/icons-material/AdsClick";
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
+  backgroundColor: "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
-  textAlign: 'center',
+  textAlign: "center",
   color: (theme ?? theme).palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
+  ...theme.applyStyles("dark", {
+    backgroundColor: "#1A2027",
   }),
 }));
-
 
 const Home = () => {
   return (
     <>
-    <Typography variant="h5" component={"div"} align="center" padding={3}>
-      Learning Grid properties, Implementation and designs.
-    </Typography>
+      <Typography variant="h5" component={"div"} align="center" padding={3}>
+        Learning Grid properties, Implementation and designs.
+      </Typography>
       {/* <h1>HOME PAGE..</h1>
       <Typography sx={{ marginBottom: 2 }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -45,80 +54,116 @@ const Home = () => {
       </Typography>
       <SimpleAlert/> */}
 
-<Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Stack>
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={2}>
+          <Grid size={7} display={"flex"}>
+            <Item>
+              <MediaCard />
+            </Item>
 
-        <Grid size={{ xs: 4, md: 6, lg:8, xl:12 }}
-        sx={{
-          flexDirection:{
-            xs:"column",
-            md:"row",
-            lg:"row"
-          }
-        }}> {/* First row..  */}
-            
-          <Grid display={"flex"} gap={2}
-          sx={
-            {
-              flexDirection:{
-                sm:"column", md:"row"
-              }
-            }
-          }>
-            
-            <Grid>
-              <Stack spacing={1}>
-                <SelectActionCard/>
-              </Stack>
-              
-            </Grid>
+            <Item>
+              <Card sx={{ maxWidth: 345 ,
+                background:'linear-gradient(to right, #2c3e50, #bdc3c7)'
+              }}>
+                <CardMedia title="green iguana" />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    align="left"
+                    padding={4}>
+                    Profile
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
 
-            <Grid>
-              <Stack spacing={1}>
-                <SelectActionCard/>
-              </Stack>
-              
-            </Grid>
-            
-              
+                  <CardActions>
+                    <Button variant="contained" color="inherit">
+                      Click here
+                    </Button>
+                  </CardActions>
+                </CardContent>
+              </Card>
+            </Item>
 
-            <Grid size={{ xs: 4, md: 4, lg:6, xl:8 }}>
-              
+            <Item>
+              <MediaCard />
+            </Item>
+          </Grid>
 
-            </Grid>
+          <Grid size={5}>
+          <Item>
+              <Card sx={{ maxWidth: 345 ,
+                background:'linear-gradient(to right, #2c3e50, #bdc3c7)'
+              }}>
+                <CardMedia title="green iguana" />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    align="left"
+                    padding={4}>
+                    Profile
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
 
+                  <CardActions>
+                    <Button variant="contained" color="inherit">
+                      Click here
+                    </Button>
+                  </CardActions>
+                </CardContent>
+              </Card>
+            </Item>
 
+            <Item>
+              <Card sx={{ maxWidth: 345 ,
+                background:'linear-gradient(to right, #2c3e50, #bdc3c7)'
+              }}>
+                <CardMedia title="green iguana" />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    align="left"
+                    padding={4}>
+                    Profile
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                    Lizards are a widespread group of squamate reptiles, with
+                    over 6,000 species, ranging across all continents except
+                    Antarctica
+                  </Typography>
 
-
+                  <CardActions>
+                    <Button variant="contained" color="inherit">
+                      Click here
+                    </Button>
+                  </CardActions>
+                </CardContent>
+              </Card>
+            </Item>
 
 
           </Grid>
-
-
-
-          {/* <Box display={"flex"}  >
-          <ReviewCard/>
-          </Box> */}
+          <Grid size={4}>
+            <Item>size=4</Item>
+          </Grid>
+          <Grid size={8}>
+            <Item>size=8</Item>
+          </Grid>
         </Grid>
-
-
-        <Grid size={{ xs: 6, md: 6 }}>{/* Second row..  */}
-          <Item>xs=6 md=4</Item>
-        </Grid>
-
-        <Grid size={{ xs: 6, md: 8 }}>{/*  Third row.. */}
-          <CustomizedTables/>
-        </Grid>
-
-
-        <Grid size={{ xs: 2, md: 4 }}>
-          <AccordionUsage/>
-        </Grid>
-        
-        </Stack>
-      </Grid>
-    </Box>
+      </Box>
     </>
   );
 };
