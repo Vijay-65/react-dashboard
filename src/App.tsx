@@ -74,8 +74,11 @@ function App() {
           </Routes>
           </Box>
 
-        <Box flexGrow={1} minHeight={"100vh"}></Box>
-          <Box>
+        <Box flexGrow={1} ></Box>
+          
+          <Box sx={{
+            bottom:0
+          }}>
           
             <Footer/>
           </Box>

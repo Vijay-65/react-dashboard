@@ -8,7 +8,8 @@ import { Box, Typography } from "@mui/material";
         color: 'white',
         textAlign: 'center',
         py: 2,
-        mt: 'auto',
+        // mt: 'auto',
+        bottom:0
       }}>
       <Typography variant="body2">
         &copy; {new Date().getFullYear()} AirBnDash | Crafted with ❤️
