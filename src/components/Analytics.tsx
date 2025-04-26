@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import EnhancedTable from "../others/Tables";
 
 const Analytics = () => {
   return (
@@ -18,6 +19,7 @@ const Analytics = () => {
         varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
         Lorem donec massa sapien faucibus et molestie ac.
       </Typography>
+      <EnhancedTable/>
     </>
   );
 };

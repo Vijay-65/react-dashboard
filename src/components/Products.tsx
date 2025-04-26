@@ -1,4 +1,6 @@
 import Typography from "@mui/material/Typography";
+import FormDialog from "../others/PopupDialog";
+import ImageUploadPopup from "../others/ImageUpload";
 
 const Products = () => {
   return (
@@ -18,6 +20,8 @@ const Products = () => {
         varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
         Lorem donec massa sapien faucibus et molestie ac.
       </Typography>
+      <FormDialog/>
+      <ImageUploadPopup/>
     </>
   );
 };
