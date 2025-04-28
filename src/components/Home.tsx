@@ -22,6 +22,7 @@ import AdsClickIcon from "@mui/icons-material/AdsClick";
 import StartIcon from '@mui/icons-material/Start';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import HomeDesign2 from "../others/HomeDesign2";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -41,7 +42,7 @@ const Home = () => {
         Welcome to Dashboard ! Here you can Search .
       </Typography>
       <h1>HOME PAGE..</h1>
-      <Typography sx={{ marginBottom: 2 }}>
+      {/* <Typography sx={{ marginBottom: 2 }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
         non enim praesent elementum facilisis leo vel. Risus at ultrices mi
@@ -54,7 +55,7 @@ const Home = () => {
         tincidunt lobortis feugiat vivamus at augue. At augue eget arcu dictum
         varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
         Lorem donec massa sapien faucibus et molestie ac. HOME PAGE ....
-      </Typography>
+      </Typography> */}
       {/* <SimpleAlert/> */}
 
       <Box sx={{ flexGrow: 1 }}>
@@ -218,7 +219,7 @@ const Home = () => {
                           component="div"
                           align="left"
                           padding={4}>
-                          Rate Analysis
+                          Rate Analysis 
                         </Typography>
                         <Typography
                           variant="body2"
@@ -322,6 +323,12 @@ const Home = () => {
           </Grid>
         </Grid>
       </Box>
+
+      <Typography variant="h5" component={"div"} align="center" padding={3}>
+        Welcome to 2nd Dashboard design using Grid..
+      </Typography>
+
+      <HomeDesign2/>
     </>
   );
 };
