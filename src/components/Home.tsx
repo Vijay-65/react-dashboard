@@ -1,6 +1,7 @@
 import Typography from "@mui/material/Typography";
 import SimpleAlert from "../others/SimpleAlert";
 import { styled } from "@mui/material/styles";
+import "../styles/dashboard.css";
 import {
   Paper,
   Box,
@@ -19,9 +20,9 @@ import AccordionUsage from "../others/Accordion";
 import SelectActionCard from "../others/SelectActionCard";
 import MediaCard from "../others/MediaCard";
 import AdsClickIcon from "@mui/icons-material/AdsClick";
-import StartIcon from '@mui/icons-material/Start';
-import AnalyticsIcon from '@mui/icons-material/Analytics';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import StartIcon from "@mui/icons-material/Start";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import HomeDesign2 from "../others/HomeDesign2";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -34,6 +35,12 @@ const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: "#1A2027",
   }),
 }));
+
+const fontStyle = {
+  fontWeight: "bold", // Makes the font bold
+  fontFamily: '"Madimi One", sans-serif', // Change font family (example: Roboto)
+  fontSize: "30px",
+};
 
 const Home = () => {
   return (
@@ -71,12 +78,13 @@ const Home = () => {
             }}>
             <Stack gap={2}>
               <Item>
-                <Card 
+                <Card
                   sx={{
-                    alignContent:"center",
+                    alignContent: "center",
                     maxWidth: 1000,
                     minHeight: 286,
                     background: "linear-gradient(to right, #5f2c82, #49a09d)",
+                    borderRadius: 9,
                   }}>
                   <CardMedia title="green iguana" />
                   <CardContent sx={{ flexGrow: 1 }}>
@@ -84,8 +92,9 @@ const Home = () => {
                       gutterBottom
                       variant="h5"
                       component="div"
-                      align="left"
-                      padding={2}>
+                      // align="left"
+                      padding={2}
+                      style={fontStyle}>
                       Get Started
                     </Typography>
                     <Typography
@@ -93,12 +102,15 @@ const Home = () => {
                       sx={{ color: "text.secondary", padding: 2 }}>
                       Lizards are a widespread group of squamate reptiles, with
                       over 6,000 species, ranging across all continents except
-                      Antarctica and Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores eos quod consectetur est reprehenderit, quisquam repellat nemo quam dolor architecto!
+                      Antarctica and Lorem ipsum dolor, sit amet consectetur
+                      adipisicing elit. Asperiores eos quod consectetur est
+                      reprehenderit, quisquam repellat nemo quam dolor
+                      architecto!
                     </Typography>
 
                     <CardActions>
                       <Button variant="contained" color="inherit">
-                        <ArrowForwardIcon/>
+                        <ArrowForwardIcon />
                       </Button>
                     </CardActions>
                   </CardContent>
@@ -114,7 +126,7 @@ const Home = () => {
                 <Item>
                   <Card
                     sx={{
-                      alignContent:"center",
+                      alignContent: "center",
                       maxWidth: {
                         xs: 500,
                         md: 345,
@@ -124,6 +136,7 @@ const Home = () => {
                       minHeight: 300,
                       background:
                         "linear-gradient(to right,rgb(233, 134, 134),rgb(58, 74, 122))",
+                      borderRadius: 9,
                     }}>
                     <CardMedia title="green iguana" />
                     <CardContent>
@@ -132,7 +145,8 @@ const Home = () => {
                         variant="h5"
                         component="div"
                         align="left"
-                        padding={4}>
+                        padding={4}
+                        style={fontStyle}>
                         Settings
                       </Typography>
                       <Typography
@@ -145,7 +159,7 @@ const Home = () => {
 
                       <CardActions>
                         <Button variant="contained" color="inherit">
-                          <ArrowForwardIcon/>
+                          <ArrowForwardIcon />
                         </Button>
                       </CardActions>
                     </CardContent>
@@ -153,12 +167,14 @@ const Home = () => {
                 </Item>
 
                 <Item>
-                  <Card 
+                  <Card
                     sx={{
-                      alignContent:"center",
-                      maxWidth: 600,minHeight:300,
+                      alignContent: "center",
+                      maxWidth: 600,
+                      minHeight: 300,
                       background:
                         "linear-gradient(to right, #215f00, #e4e4d9);",
+                      borderRadius: 9,
                     }}>
                     <CardMedia title="green iguana" />
                     <CardContent>
@@ -167,7 +183,8 @@ const Home = () => {
                         variant="h5"
                         component="div"
                         align="left"
-                        padding={3}>
+                        padding={3}
+                        style={fontStyle}>
                         Media
                       </Typography>
                       <Typography
@@ -180,7 +197,7 @@ const Home = () => {
 
                       <CardActions>
                         <Button variant="contained" color="inherit">
-                        <ArrowForwardIcon/>
+                          <ArrowForwardIcon />
                         </Button>
                       </CardActions>
                     </CardContent>
@@ -201,7 +218,7 @@ const Home = () => {
                   <Item>
                     <Card
                       sx={{
-                        alignContent:"center",
+                        alignContent: "center",
                         maxWidth: {
                           md: 375,
                           lg: 375,
@@ -210,6 +227,7 @@ const Home = () => {
                         minHeight: 287,
                         background:
                           "linear-gradient(to right, #c0c0aa, #1cefff)",
+                        borderRadius: 9,
                       }}>
                       <CardMedia title="green iguana" />
                       <CardContent>
@@ -218,10 +236,12 @@ const Home = () => {
                           variant="h5"
                           component="div"
                           align="left"
-                          padding={4}>
-                          Rate Analysis 
+                          padding={4}
+                          style={fontStyle}>
+                          Rate Analysis
                         </Typography>
                         <Typography
+                          style={{}}
                           variant="body2"
                           sx={{ color: "text.secondary" }}>
                           Lizards are a widespread group of squamate reptiles,
@@ -231,7 +251,7 @@ const Home = () => {
 
                         <CardActions>
                           <Button variant="contained" color="inherit">
-                          <ArrowForwardIcon/>
+                            <ArrowForwardIcon />
                           </Button>
                         </CardActions>
                       </CardContent>
@@ -240,15 +260,16 @@ const Home = () => {
                   <Item>
                     <Card
                       sx={{
-                        alignContent:"center",
+                        alignContent: "center",
                         maxWidth: {
                           md: 375,
                           lg: 375,
                           xl: 375,
                         },
-                        minHeight:300,
+                        minHeight: 300,
                         background:
                           "linear-gradient(to right, #2c3e50, #bdc3c7)",
+                        borderRadius: 9,
                       }}>
                       <CardMedia title="green iguana" />
                       <CardContent>
@@ -257,7 +278,8 @@ const Home = () => {
                           variant="h5"
                           component="div"
                           align="left"
-                          padding={4}>
+                          padding={4}
+                          style={fontStyle}>
                           Elements
                         </Typography>
                         <Typography
@@ -270,7 +292,7 @@ const Home = () => {
 
                         <CardActions>
                           <Button variant="contained" color="inherit">
-                          <ArrowForwardIcon/>
+                            <ArrowForwardIcon />
                           </Button>
                         </CardActions>
                       </CardContent>
@@ -283,7 +305,7 @@ const Home = () => {
                 <Item>
                   <Card
                     sx={{
-                      alignContent:"center",
+                      alignContent: "center",
                       maxWidth: {
                         md: 405,
                         lg: 405,
@@ -291,6 +313,7 @@ const Home = () => {
                       },
                       minHeight: 620,
                       background: "linear-gradient(to right, #FFFDE4, #005AA7)",
+                      borderRadius: 9,
                     }}>
                     <CardMedia title="green iguana" />
                     <CardContent>
@@ -299,7 +322,8 @@ const Home = () => {
                         variant="h5"
                         component="div"
                         align="left"
-                        padding={7}>
+                        padding={4}
+                        style={fontStyle}>
                         Employee Profiles
                       </Typography>
                       <Typography
@@ -312,7 +336,7 @@ const Home = () => {
 
                       <CardActions>
                         <Button variant="contained" color="inherit">
-                        <ArrowForwardIcon/>
+                          <ArrowForwardIcon />
                         </Button>
                       </CardActions>
                     </CardContent>
@@ -328,7 +352,7 @@ const Home = () => {
         Welcome to 2nd Dashboard design using Grid..
       </Typography>
 
-      <HomeDesign2/>
+      <HomeDesign2 />
     </>
   );
 };

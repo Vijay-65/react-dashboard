@@ -22,6 +22,7 @@ import { useNavigate } from "react-router-dom";
 
 import HomeIcon from "@mui/icons-material/Home";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import './styles/dashboard.css'
 import {
   Tooltip,
   Avatar,
