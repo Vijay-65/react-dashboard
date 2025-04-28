@@ -64,12 +64,20 @@ const HomeDesign2 = () => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid
-            size={12}
+            size={{
+                
+                md:8,
+                lg:12
+            }}
+
+            
             gap={4}
+            justifyContent={"center"}
             sx={{
               display: {
                 md: "flex",
-                xs: "row",
+                sm: "row",
+
               },
             }}>
             <Item
@@ -83,9 +91,16 @@ const HomeDesign2 = () => {
                     minHeight: 450,
                     alignContent: "start",
                     padding: 4,
-                    border: "1px solid rgb(48, 45, 45)",
-                    flexGrow: 1,
-                  }}>
+                    border: "1px solid rgb(148, 32, 32)",
+                    position: "relative",
+                               transition: "background-color 0.3s ease-in-out", // Transition background color
+                     "&:hover": {
+                                 backgroundColor: "lightblue", // Background color on hover
+                               },        
+                    
+                  }}
+                  
+                 >
                   <CardContent
                     style={{
                       justifyItems: "left",
@@ -108,7 +123,7 @@ const HomeDesign2 = () => {
                           <ListAltIcon
                             style={{
                               fontSize: "50px", // Icon size
-                              color: "yellow", // Icon color
+                              color: "lightblue", // Icon color
                             }}
                           />
                         </div>
@@ -136,7 +151,7 @@ const HomeDesign2 = () => {
                         fontFamily: '"Tagesschrift", sans-serif', // Change font family (example: Roboto)
                         textAlign: "left",
                       }}>
-                      Here you can Add, View Update and Manage your price List.
+                      Here you can Add, View Update and Manage your price List and utilities and other.
                     </Typography>
                   </CardContent>
 
@@ -165,6 +180,11 @@ const HomeDesign2 = () => {
                   alignContent: "start",
                   padding: 4,
                   border: "1px solid rgb(48, 45, 45)",
+                  position: "relative",
+                               transition: "background-color 0.3s ease-in-out", // Transition background color
+                     "&:hover": {
+                                 backgroundColor: "olive", // Background color on hover
+                               },        
                 }}>
                 <CardContent
                   style={{
@@ -217,7 +237,7 @@ const HomeDesign2 = () => {
                       textAlign: "left",
                     }}>
                     Create and Edit the Elements ( Price lists, images, offers,
-                    info, etc.) that make up slides.
+                    info,tables, icons etc.) that make up slides.
                   </Typography>
                 </CardContent>
                 {/* <CardContent style={{flexGrow:0}}></CardContent> */}
@@ -231,6 +251,7 @@ const HomeDesign2 = () => {
                 </CardActions>
               </Card>
             </Item>
+            
 
             {/* --------------------------------------- third card --------------------------------------------- */}
             <Item
@@ -244,6 +265,11 @@ const HomeDesign2 = () => {
                   alignContent: "start",
                   padding: 4,
                   border: "1px solid rgb(48, 45, 45)",
+                  position: "relative",
+                               transition: "background-color 0.3s ease-in-out", // Transition background color
+                     "&:hover": {
+                                 backgroundColor: "lightsalmon", // Background color on hover
+                               },        
                 }}>
                 <CardContent
                   style={{
@@ -322,7 +348,13 @@ const HomeDesign2 = () => {
                   minHeight: 450,
                   alignContent: "start",
                   padding: 4,
-                  border: "1px solid rgb(48, 45, 45)",
+                  border: "1px solid rgb(110, 37, 37)",
+                  position: "relative",
+                               transition: "background-color 0.3s ease-in-out", // Transition background color
+                     "&:hover": {
+                                 backgroundColor: "rgb(112, 63, 63)", // Background color on hover
+                                 
+                               },        
                 }}>
                 <CardContent
                   style={{
@@ -390,7 +422,32 @@ const HomeDesign2 = () => {
               </Card>
             </Item>
 
+            
+          </Grid>
+
+          <Grid
+            size={12}
+            justifyContent={"center"}
+            gap={4}
+            paddingBottom={5}
+            paddingTop={2}
+            sx={{
+              display: {
+                md: "flex",
+              },
+            }}>
+
+
             {/* ------------------------------ Fifth card ------------------------------------- */}
+       <Box display={"flex"} gap={3}
+       sx={{
+        flexDirection:{
+            xs:"column",
+            sm:"column",
+            md:"row"
+        }
+       }}>     
+        <Box>
             <Item
               style={{
                 borderRadius: 4,
@@ -402,6 +459,11 @@ const HomeDesign2 = () => {
                   alignContent: "start",
                   padding: 4,
                   border: "1px solid rgb(48, 45, 45)",
+                  position: "relative",
+                               transition: "background-color 0.3s ease-in-out", // Transition background color
+                     "&:hover": {
+                                 backgroundColor: "rgb(100, 170, 57)", // Background color on hover
+                               },        
                 }}>
                 <CardContent
                   style={{
@@ -425,7 +487,7 @@ const HomeDesign2 = () => {
                         <OndemandVideoIcon
                           style={{
                             fontSize: "50px", // Icon size
-                            color: "mediumslateblue", // Icon color
+                            color: "rgb(110, 197, 52)", // Icon color
                           }}
                         />
                       </div>
@@ -469,18 +531,14 @@ const HomeDesign2 = () => {
                 </CardActions>
               </Card>
             </Item>
-          </Grid>
+            </Box>
 
-          <Grid
-            size={12}
-            justifyContent={"center"}
-            gap={4}
-            sx={{
-              display: {
-                md: "flex",
-              },
-            }}>
-            {/*  Sixth card  */}
+
+
+
+
+ {/* -------------------------- Sixth card ---------------------------------- */}
+        <Box>
             <Item
               style={{
                 borderRadius: 4,
@@ -492,6 +550,11 @@ const HomeDesign2 = () => {
                   alignContent: "start",
                   padding: 4,
                   border: "1px solid rgb(48, 45, 45)",
+                  position: "relative",
+                               transition: "background-color 0.3s ease-in-out", // Transition background color
+                     "&:hover": {
+                                 backgroundColor: "rgb(88, 66, 127)", // Background color on hover
+                               }     
                 }}>
                 <CardContent
                   style={{
@@ -560,8 +623,10 @@ const HomeDesign2 = () => {
                 </CardActions>
               </Card>
             </Item>
+        </Box>
 
-            {/*  Seventh card  */}
+ {/* ------------------------------------------- Seventh card ---------------------------------------- */}
+        <Box>
             <Item
               style={{
                 borderRadius: 4,
@@ -572,6 +637,11 @@ const HomeDesign2 = () => {
                   alignContent: "start",
                   padding: 4,
                   border: "1px solid rgb(48, 45, 45)",
+                  position: "relative",
+                               transition: "background-color 0.3s ease-in-out", // Transition background color
+                     "&:hover": {
+                                 backgroundColor: "rgb(58, 117, 94)", // Background color on hover
+                               },     
                 }}>
                 <CardContent
                   style={{
@@ -639,6 +709,8 @@ const HomeDesign2 = () => {
                 </CardActions>
               </Card>
             </Item>
+        </Box>
+        </Box>
           </Grid>
         </Grid>
       </Box>
