@@ -1,6 +1,8 @@
 import { Typography } from '@mui/material'
 import React from 'react'
 
+
+
 const GridDesign = () => {
   return (
     <>
@@ -20,7 +22,7 @@ const GridDesign = () => {
         Lorem donec massa sapien faucibus et molestie ac.
       </Typography>
 
-    
+
 
 
 

@@ -5,7 +5,7 @@ import { Box, Typography } from "@mui/material";
       component="footer"
       sx={{
         
-        backgroundColor: 'lightsalmon',
+        backgroundColor: 'rgb(4, 136, 166)',
         color: 'white',
         textAlign: 'center',
         py: 2,

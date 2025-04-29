@@ -60,10 +60,10 @@ function App() {
       <Box sx={{ display: "flex" }}>
         <MiniDrawer />
 
-        <Box sx={{ flexGrow: 1, p: 3 , flexDirection:"column" }}>
+        <Box sx={{ flexGrow: 1, flexDirection:"column" }}>
           <DrawerHeader />
           {/* <MiniDrawer/> */}
-          <Box component={"div"}>
+          <Box component={"div"} sx={{p:4}}>
             <Routes>
             <Route path={"/"} element={<Login />}></Route>
 

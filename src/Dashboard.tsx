@@ -20,6 +20,8 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useNavigate } from "react-router-dom";
 
+
+
 import HomeIcon from "@mui/icons-material/Home";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import './styles/dashboard.css'
@@ -31,6 +33,7 @@ import {
   InputBase,
   alpha,
   Collapse,
+  Badge,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CloudySnowingIcon from "@mui/icons-material/CloudySnowing";
@@ -226,7 +229,7 @@ export default function MiniDrawer() {
       <AppBar 
         position="fixed"
         open={open}
-        style={{backgroundColor:"lightsalmon"  }}>
+        style={{backgroundColor:"rgb(4, 136, 166)"  }}>
         <Toolbar >
           <IconButton
             color="inherit"
@@ -252,6 +255,19 @@ export default function MiniDrawer() {
           </Box>
 
           <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ color: 'action.active' }} padding={2}>
+            
+      <Badge color="secondary" variant="dot" >
+        <MailIcon />
+      </Badge>
+    </Box>
+
+    <Box sx={{ color: 'action.active' }} padding={2}>
+            
+      <Badge color="secondary" variant="dot" >
+         <NotificationsIcon/>
+      </Badge>
+    </Box>
 
           {/* 🔍 Search Bar */}
           <Search>
@@ -360,7 +376,7 @@ export default function MiniDrawer() {
       <InsertPhotoIcon />
     </ListItemIcon>
     <ListItemText
-      primary="Research"
+      primary="Designs"
       style={{ color: "darkred", marginRight: 6 }}
     />
     {open1 ? <ExpandLess /> : <ExpandMore />}
@@ -373,7 +389,7 @@ export default function MiniDrawer() {
           <ListItemIcon>
             <CameraIcon />
           </ListItemIcon>
-          <ListItemText primary="Grid" />
+          <ListItemText primary="Grid Design" />
         </ListItemButton>
       </ListItem>
 
@@ -382,7 +398,7 @@ export default function MiniDrawer() {
           <ListItemIcon>
             <ScreenshotIcon />
           </ListItemIcon>
-          <ListItemText primary="Cards" />
+          <ListItemText primary="Cards Design" />
         </ListItemButton>
       </ListItem>
     </List>
