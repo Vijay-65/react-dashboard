@@ -12,6 +12,8 @@ import SignUp from "./components/SignUp";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/Footer";
+import GridDesign from "./components/GridDesign";
+import CardsDesign from "./components/CardsDesign";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -70,6 +72,8 @@ function App() {
             <Route path={"/notifications"} element={<Notifications />}></Route>
             <Route path={"/settings"} element={<Settings />}></Route>
             <Route path={"/analytics"} element={<Analytics />}></Route>
+            <Route path={"/griddesign"} element={<GridDesign/>}></Route>
+            <Route path={"/cardsdesign"} element={<CardsDesign/>}></Route>
             
           </Routes>
           </Box>

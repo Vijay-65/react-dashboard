@@ -178,6 +178,13 @@ export default function MiniDrawer() {
     setOpen1(!open1);
   };
 
+  const [open2, setOpen2] = React.useState(false);
+  const handleClick2 = () => {
+    setOpen2(!open2)
+  };
+
+  
+
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -210,7 +217,7 @@ export default function MiniDrawer() {
     setAnchorElUser(null);
   };
 
-  const settings = ["Profile", "Account", "Dashboard", "Logout"];
+   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   return (
     <>
@@ -345,36 +352,45 @@ export default function MiniDrawer() {
                 ]}
               />
             </ListItemButton>
-
-            <ListItemButton onClick={handleClick}>
-              <ListItemIcon style={{ color: "chocolate", marginLeft: 4 }}>
-                <InsertPhotoIcon />
-              </ListItemIcon>
-              <ListItemText
-                primary="Pictures"
-                style={{ color: "darkred", marginRight: 6 }}
-              />
-              {open1 ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-
-            <Collapse in={open1} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <CameraIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Camera" />
-                </ListItemButton>
-
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <ScreenshotIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Screenshots" />
-                </ListItemButton>
-              </List>
-            </Collapse>
           </ListItem>
+
+          <ListItem disablePadding sx={{ display: "block" }}>
+  <ListItemButton onClick={handleClick}>
+    <ListItemIcon style={{ color: "chocolate", marginLeft: 4 }}>
+      <InsertPhotoIcon />
+    </ListItemIcon>
+    <ListItemText
+      primary="Research"
+      style={{ color: "darkred", marginRight: 6 }}
+    />
+    {open1 ? <ExpandLess /> : <ExpandMore />}
+  </ListItemButton>
+
+  <Collapse in={open1} timeout="auto" unmountOnExit>
+    <List component="div" disablePadding>
+      <ListItem disablePadding sx={{ display: "block" }}>
+        <ListItemButton sx={{ pl: 4 }} onClick={() => navigate("/griddesign")}>
+          <ListItemIcon>
+            <CameraIcon />
+          </ListItemIcon>
+          <ListItemText primary="Grid" />
+        </ListItemButton>
+      </ListItem>
+
+      <ListItem disablePadding sx={{ display: "block" }}>
+        <ListItemButton sx={{ pl: 4 }} onClick={() => navigate("/cardsdesign")}>
+          <ListItemIcon>
+            <ScreenshotIcon />
+          </ListItemIcon>
+          <ListItemText primary="Cards" />
+        </ListItemButton>
+      </ListItem>
+    </List>
+  </Collapse>
+</ListItem>
+
+
+
 
           <ListItem
             disablePadding
@@ -425,7 +441,7 @@ export default function MiniDrawer() {
             </ListItemButton>
 
             {/* list inside list starts from here   */}
-            <ListItemButton onClick={handleClick}>
+            <ListItemButton onClick={handleClick2}>
               <ListItemIcon style={{ color: "chocolate", marginLeft: 4 }}>
                 <ViewComfyIcon />
               </ListItemIcon>
@@ -433,10 +449,10 @@ export default function MiniDrawer() {
                 primary="Layouts"
                 style={{ color: "darkred", marginRight: 6 }}
               />
-              {open1 ? <ExpandLess /> : <ExpandMore />}
+              {open2 ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
 
-            <Collapse in={open1} timeout="auto" unmountOnExit>
+            <Collapse in={open2} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <ListItemButton sx={{ pl: 4 }}>
                   <ListItemIcon>
@@ -455,6 +471,8 @@ export default function MiniDrawer() {
             </Collapse>
             {/* List inside list , SIdebar ends here.. */}
           </ListItem>
+
+
 
           <ListItem
             disablePadding

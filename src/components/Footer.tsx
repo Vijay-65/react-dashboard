@@ -4,6 +4,7 @@ import { Box, Typography } from "@mui/material";
     <Box
       component="footer"
       sx={{
+        
         backgroundColor: 'lightsalmon',
         color: 'white',
         textAlign: 'center',
