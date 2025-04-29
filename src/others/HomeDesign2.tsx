@@ -19,7 +19,7 @@ import "../styles/HomeDesign2.css";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
-import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import EditDocumentIcon from "@mui/icons-material/EditDocument";
 import LocalActivityIcon from "@mui/icons-material/LocalActivity";

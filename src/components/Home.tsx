@@ -1,12 +1,12 @@
 import Typography from "@mui/material/Typography";
-import SimpleAlert from "../others/SimpleAlert";
+
 import { styled } from "@mui/material/styles";
 import "../styles/dashboard.css";
 import {
   Paper,
   Box,
   Grid,
-  Accordion,
+  
   Stack,
   Button,
   Card,
@@ -14,16 +14,18 @@ import {
   CardContent,
   CardMedia,
 } from "@mui/material";
-import ReviewCard from "../others/Card";
-import CustomizedTables from "../others/Table";
-import AccordionUsage from "../others/Accordion";
-import SelectActionCard from "../others/SelectActionCard";
-import MediaCard from "../others/MediaCard";
-import AdsClickIcon from "@mui/icons-material/AdsClick";
+
+
 import StartIcon from "@mui/icons-material/Start";
 import AnalyticsIcon from "@mui/icons-material/Analytics";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import HomeDesign2 from "../others/HomeDesign2";
+
+import EditDocumentIcon from "@mui/icons-material/EditDocument";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+
+import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -77,7 +79,7 @@ const Home = () => {
               xl: "flex",
             }}>
             <Stack gap={2}>
-              <Item>
+              
                 <Card
                   sx={{
                     alignContent: "center",
@@ -85,21 +87,30 @@ const Home = () => {
                     minHeight: 286,
                     background: "linear-gradient(to right, #5f2c82, #49a09d)",
                     borderRadius: 9,
+                    padding:"8px"
                   }}>
                   <CardMedia title="green iguana" />
-                  <CardContent sx={{ flexGrow: 1 }}>
+                  <CardContent sx={{ flexGrow: 1 }} >
+                    <Box display={"flex"} justifyContent={"center"} gap={2} padding={2}>
                     <Typography
-                      gutterBottom
+                      
                       variant="h5"
                       component="div"
                       // align="left"
-                      padding={2}
+                     
                       style={fontStyle}>
                       Get Started
                     </Typography>
+                    <StartIcon  
+                      style={{
+                        alignContent:"center",
+                        fontSize:"30px",
+                        
+                      }}/>
+                    </Box>
                     <Typography
                       variant="body2"
-                      sx={{ color: "text.secondary", padding: 2 }}>
+                      sx={{ color: "text.secondary", padding: 2 , fontFamily: '"Tagesschrift", sans-serif', textAlign:"center"}}>
                       Lizards are a widespread group of squamate reptiles, with
                       over 6,000 species, ranging across all continents except
                       Antarctica and Lorem ipsum dolor, sit amet consectetur
@@ -115,7 +126,7 @@ const Home = () => {
                     </CardActions>
                   </CardContent>
                 </Card>
-              </Item>
+              
 
               <Grid
                 gap={2}
@@ -123,7 +134,7 @@ const Home = () => {
                   lg: "flex",
                   md: "flex",
                 }}>
-                <Item>
+                
                   <Card
                     sx={{
                       alignContent: "center",
@@ -137,21 +148,30 @@ const Home = () => {
                       background:
                         "linear-gradient(to right,rgb(233, 134, 134),rgb(58, 74, 122))",
                       borderRadius: 9,
+                      padding:2
                     }}>
                     <CardMedia title="green iguana" />
                     <CardContent>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        align="left"
-                        padding={4}
-                        style={fontStyle}>
-                        Settings
-                      </Typography>
+                    <Box display={"flex"} justifyContent={"center"} gap={2} padding={2}>
+                    <Typography
+                      
+                      variant="h5"
+                      component="div"
+                      // align="left"
+                     
+                      style={fontStyle}>
+                      Settings
+                    </Typography>
+                    <SettingsSuggestIcon  
+                      style={{
+                        alignContent:"center",
+                        fontSize:"30px",
+                        
+                      }}/>
+                    </Box>
                       <Typography
                         variant="body2"
-                        sx={{ color: "text.secondary" }}>
+                        sx={{ color: "text.secondary" , fontFamily: '"Tagesschrift", sans-serif', textAlign:"center" }}>
                         Lizards are a widespread group of squamate reptiles,
                         with over 6,000 species, ranging across all continents
                         except Antarctica
@@ -164,9 +184,9 @@ const Home = () => {
                       </CardActions>
                     </CardContent>
                   </Card>
-                </Item>
+                
 
-                <Item>
+                
                   <Card
                     sx={{
                       alignContent: "center",
@@ -175,21 +195,30 @@ const Home = () => {
                       background:
                         "linear-gradient(to right, #215f00, #e4e4d9);",
                       borderRadius: 9,
+                      padding:2
                     }}>
                     <CardMedia title="green iguana" />
                     <CardContent>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        align="left"
-                        padding={3}
-                        style={fontStyle}>
-                        Media
-                      </Typography>
+                    <Box display={"flex"} justifyContent={"center"} gap={2} padding={2}>
+                    <Typography
+                      
+                      variant="h5"
+                      component="div"
+                      // align="left"
+                     
+                      style={fontStyle}>
+                      Documents
+                    </Typography>
+                    <EditDocumentIcon  
+                      style={{
+                        alignContent:"center",
+                        fontSize:"30px",
+                        
+                      }}/>
+                    </Box>
                       <Typography
                         variant="body2"
-                        sx={{ color: "text.secondary" }}>
+                        sx={{ color: "text.secondary" , fontFamily: '"Tagesschrift", sans-serif', padding:2, textAlign:"center"}}>
                         Lizards are a widespread group of squamate reptiles,
                         with over 6,000 species, ranging across all continents
                         except Antarctica
@@ -202,7 +231,7 @@ const Home = () => {
                       </CardActions>
                     </CardContent>
                   </Card>
-                </Item>
+              
               </Grid>
             </Stack>
 
@@ -215,7 +244,7 @@ const Home = () => {
               <Grid>
                 <Stack gap={2}>
                   {" "}
-                  <Item>
+                  
                     <Card
                       sx={{
                         alignContent: "center",
@@ -228,22 +257,31 @@ const Home = () => {
                         background:
                           "linear-gradient(to right, #c0c0aa, #1cefff)",
                         borderRadius: 9,
+                        padding:2
                       }}>
                       <CardMedia title="green iguana" />
                       <CardContent>
-                        <Typography
-                          gutterBottom
-                          variant="h5"
-                          component="div"
-                          align="left"
-                          padding={4}
-                          style={fontStyle}>
-                          Rate Analysis
-                        </Typography>
+                      <Box display={"flex"} justifyContent={"center"} gap={2} padding={2}>
+                    <Typography
+                      
+                      variant="h5"
+                      component="div"
+                      // align="left"
+                     
+                      style={fontStyle}>
+                      Items
+                    </Typography>
+                    <  AnalyticsIcon
+                      style={{
+                        alignContent:"center",
+                        fontSize:"30px",
+                        
+                      }}/>
+                    </Box>
                         <Typography
                           style={{}}
                           variant="body2"
-                          sx={{ color: "text.secondary" }}>
+                          sx={{ color: "text.secondary" , fontFamily: '"Tagesschrift", sans-serif', padding:1.2, textAlign:"center"}}>
                           Lizards are a widespread group of squamate reptiles,
                           with over 6,000 species, ranging across all continents
                           except Antarctica
@@ -256,8 +294,8 @@ const Home = () => {
                         </CardActions>
                       </CardContent>
                     </Card>
-                  </Item>
-                  <Item>
+                  
+                  
                     <Card
                       sx={{
                         alignContent: "center",
@@ -270,21 +308,30 @@ const Home = () => {
                         background:
                           "linear-gradient(to right, #2c3e50, #bdc3c7)",
                         borderRadius: 9,
+                        padding:2
                       }}>
                       <CardMedia title="green iguana" />
                       <CardContent>
-                        <Typography
-                          gutterBottom
-                          variant="h5"
-                          component="div"
-                          align="left"
-                          padding={4}
-                          style={fontStyle}>
-                          Elements
-                        </Typography>
+                      <Box display={"flex"} justifyContent={"center"} gap={2} padding={2}>
+                    <Typography
+                      
+                      variant="h5"
+                      component="div"
+                      // align="left"
+                     
+                      style={fontStyle}>
+                      Contacts
+                    </Typography>
+                    <LocalActivityIcon  
+                      style={{
+                        alignContent:"center",
+                        fontSize:"30px",
+                        
+                      }}/>
+                    </Box>
                         <Typography
                           variant="body2"
-                          sx={{ color: "text.secondary" }}>
+                          sx={{ color: "text.secondary" , fontFamily: '"Tagesschrift", sans-serif', textAlign:"center"}}>
                           Lizards are a widespread group of squamate reptiles,
                           with over 6,000 species, ranging across all continents
                           except Antarctica
@@ -297,12 +344,12 @@ const Home = () => {
                         </CardActions>
                       </CardContent>
                     </Card>
-                  </Item>
+                  
                 </Stack>
               </Grid>
 
               <Grid>
-                <Item>
+                
                   <Card
                     sx={{
                       alignContent: "center",
@@ -314,21 +361,28 @@ const Home = () => {
                       minHeight: 620,
                       background: "linear-gradient(to right, #FFFDE4, #005AA7)",
                       borderRadius: 9,
+                      padding:3
                     }}>
                     <CardMedia title="green iguana" />
                     <CardContent>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        align="left"
-                        padding={4}
-                        style={fontStyle}>
-                        Employee Profiles
-                      </Typography>
+                    <Box display={"flex"} justifyContent={"center"} gap={2} >
+                    <Typography
+                      
+                      variant="h5"
+                      component="div"
+                      // align="left"
+                     
+                      style={fontStyle}>
+                      Activities
+                    </Typography>
+                    <ListAltIcon  
+                      sx={{
+                        fontSize:"30px",
+                      }}/>
+                    </Box>
                       <Typography
                         variant="body2"
-                        sx={{ color: "text.secondary" }}>
+                        sx={{ color: "text.secondary" , fontFamily: '"Tagesschrift", sans-serif', padding:2, textAlign:"center"}}>
                         Lizards are a widespread group of squamate reptiles,
                         with over 6,000 species, ranging across all continents
                         except Antarctica
@@ -341,7 +395,7 @@ const Home = () => {
                       </CardActions>
                     </CardContent>
                   </Card>
-                </Item>
+                
               </Grid>
             </Grid>
           </Grid>
