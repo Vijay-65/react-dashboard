@@ -3,6 +3,7 @@ import Rating from '@mui/material/Rating';
 import Box from '@mui/material/Box';
 import StarIcon from '@mui/icons-material/Star';
 import { Typography } from '@mui/material';
+import '../styles/Settings.css'
 
 const labels: { [index: string]: string } = {
   0.5: 'Useless',
@@ -79,7 +80,7 @@ export function CardRating() {
         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
       />
       {value !== null && (
-        <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+        <Box sx={{ ml: 2, fontFamily:'"Outfit", sans-serif'}}>{labels[hover !== -1 ? hover : value]}</Box>
       )}
     </Box></>
   );

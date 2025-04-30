@@ -21,11 +21,19 @@ import LimitTags from "../others/LimitTags";
 import RadioButtonsGroup from "../others/RadioButton";
 import img1 from "../assets/images (1).jpeg";
 import img2 from "../assets/images (2).jpeg";
+import img3 from "../assets/images (3).jpeg"
+import img4 from "../assets/images.jpeg"
+import img5 from "../assets/download.jpeg"
+import img6 from "../assets/download (1).jpeg"
+import img7 from "../assets/download (2).jpeg"
+
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import cardImg from '../assets/CardBackground.jpg'
+import cardImg from "../assets/CardBackground.jpg";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import '../styles/Settings.css'
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import "../styles/Settings.css";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -37,6 +45,15 @@ const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: "#1A2027",
   }),
 }));
+
+const fontFamilyContent = {
+  fontFamily: '"Outfit", sans-serif',
+  fontWeight: "unset",
+};
+
+const fontFamilyTopic = {
+  fontFamily: '"Outfit", sans-serif',
+};
 
 const Settings = () => {
   return (
@@ -97,173 +114,690 @@ const Settings = () => {
           </Grid>
 
           <Grid size={9.5}>
-            <Typography>Contents</Typography>
-            <Item>
-              <Stack gap={2}>
-                <Card variant="elevation" sx={{ maxWidth: 600, backgroundImage:`url(${cardImg})`}} >
-                  <Box sx={{ p: 3 }} display={"flex"} gap={2}>
-                    <Box>
-                      <CardMedia
-                        sx={{ height: 180, width: 170, borderRadius: 6 }}
-                        image={img2}
-                        title="green iguana"
-                      />
+            <Box>
+              <Typography>Contents</Typography>
+            </Box>
+            <Grid>
+              <Box
+                gap={4}
+                justifyContent={"center"}
+                display={"flex"}
+                flexWrap={"wrap"}
+                sx={{
+                  flexDirection: {
+                    xs: "column",
+                    sm: "column",
+                    md: "row",
+                    lg: "row",
+                    xl: "row",
+                  },
+                }}>
+
+
+    {/*------------------------- First card -------------------------------- */}
+                <Box >
+                  <Card
+                    variant="elevation"
+                    sx={{
+                      maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
+                      background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                    }}>
+                    <Box sx={{ p: 3 }} display={"flex"} gap={2}>
+                      <Box>
+                        <CardMedia
+                          sx={{
+                            height: 180,
+                            width: 170,
+                            borderRadius: 6,
+                            minHeight: 50,
+                            minWidth: 50,
+                          }}
+                          image={img1}
+                          title="green iguana"
+                        />
+                      </Box>
+
+                      <Box padding={1} gap={2}>
+                        <Box>
+                          <Typography
+                            variant="h4"
+                            align="left"
+                            style={fontFamilyTopic}>
+                            Himayalas
+                          </Typography>
+                          <Typography align="left" style={fontFamilyContent}>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            agni velit exercitationem nihil iure numquam!
+                          </Typography>
+                        </Box>
+
+                        <Box paddingBottom={0.5} paddingTop={0.5}>
+                          <Typography>
+                            <CardRating />
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Stack direction="row" spacing={1}>
+                            <Chip
+                              sx={fontFamilyContent}
+                              style={{
+                                backgroundColor: "rgba(164, 110, 47, 0.7)",
+                              }}
+                              label="Safe"
+                              size="small"
+                            />
+                            <Chip
+                              sx={fontFamilyContent}
+                              variant="outlined"
+                              style={{
+                                borderRadius: 40,
+
+                                backgroundColor: "rgb(120, 209, 161)",
+                              }}
+                              label="Allowed"
+                              size="small"
+                            />
+                          </Stack>
+                        </Box>
+                      </Box>
+
+                      <Box>
+                        <Divider orientation="vertical" />
+                      </Box>
+
+                      <Box alignItems={"center"}>
+                        <FavoriteIcon />
+                        <ShareIcon />
+
+                        <LocationOnIcon />
+                      </Box>
                     </Box>
-
-                    <Box padding={1} gap={2}>
-                      <Box>
-                        <Typography variant="h4" align="left" 
-                        style={{
-                          fontFamily: '"Madimi One", sans-serif', // Change font family (example: Roboto)
-                        }}>
-                          Mountains
-                        </Typography>
-                        <Typography align="left" style={{
-                           fontFamily: '"Tagesschrift", sans-serif', fontWeight:"unset", color:"#575b5c"
-                           
-                        }}>
-                          Lorem ipsum dolor sit, amet consectetur adipisicing
-                          agni velit exercitationem nihil iure numquam!
-                        </Typography>
-                      </Box>
-
-                      <Box paddingBottom={0.5} paddingTop={0.5}>
-                        <Typography>
-                          <CardRating />
-                        </Typography>
-                      </Box>
-                      <Box>
-                        <Stack direction="row" spacing={1}>
-                          <Chip
-                            style={{
-                              backgroundColor: "rgba(164, 110, 47, 0.7)",
-                            }}
-                            label="Safe"
-                            size="small"
-                          />
-                          <Chip
+                    <Divider />
+                    <Box
+                      sx={{ p: 2, maxWidth: 580 }}
+                      gap={2}
+                      display={"flex"}
+                      justifyContent={"space-between"}>
+                      <Box display={"flex"} gap={1}>
+                        <Box>
+                          <Button
                             variant="outlined"
-                            style={{
-                              borderRadius: 40,
+                            style={fontFamilyContent}
+                            sx={{
+                              borderRadius: 2,
+                              color: "white",
+                              backgroundColor: "#384040",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "transparent", // Background color on hover
+                                color: "black",
+                              },
+                            }}>
+                            Add Place
+                          </Button>
+                        </Box>
 
-                              backgroundColor: "rgb(120, 209, 161)",
-                            }}
-                            label="Allowed"
-                            size="small"
-                          />
-                        </Stack>
+                        <Box>
+                          <Button
+                            style={fontFamilyContent}
+                            variant="outlined"
+                            sx={{
+                              borderRadius: 2,
+                              color: "black",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "#384040", // Background color on hover
+                                color: "whitesmoke",
+                              },
+                            }}>
+                            Details
+                          </Button>
+                        </Box>
+                      </Box>
+
+                      <Box display={"flex"} alignItems={"center"}>
+                        <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
+                        <Typography variant="h5" fontWeight={"bold"}>
+                          27.70
+                        </Typography>
                       </Box>
                     </Box>
+                  </Card>
+                </Box>
 
-                    <Box>
-                      <Divider orientation="vertical" />
-                    </Box>
+  {/*-----------------------Second card ------------------------*/}
 
-                    <Box alignItems={"center"}>
-                      <FavoriteIcon />
-                      <ShareIcon />
-
-                      <LocationOnIcon />
-                    </Box>
-                  </Box>
-                  <Divider />
-                  <Box
-                    sx={{ p: 2, maxWidth: 580 }}
-                    gap={2}
-                    display={"flex"}
-                    justifyContent={"space-between"}>
-                    <Box display={"flex"} gap={1}>
-                      
+                <Box >
+                  <Card
+                    variant="elevation"
+                    sx={{
+                      maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
+                      background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                    }}>
+                    <Box sx={{ p: 3 }} display={"flex"} gap={2}>
                       <Box>
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            borderRadius: 2,
-                            color: "white",
-                            backgroundColor:"#384040",
-                            borderColor: "black",
-                            transition: "background-color 0.3s ease-in-out", // Transition background color
-                      "&:hover": {
-                        backgroundColor: "transparent", // Background color on hover
-                        color:"black"
-                      }
-                          }}>
-                          Add Place
-                        </Button>
+                        <CardMedia
+                          sx={{ height: 180, width: 170, borderRadius: 6 }}
+                          image={img2}
+                          title="green iguana"
+                        />
+                      </Box>
+
+                      <Box padding={1} gap={2}>
+                        <Box>
+                          <Typography
+                            variant="h4"
+                            align="left"
+                            style={fontFamilyTopic}>
+                            Mountains
+                          </Typography>
+                          <Typography align="left" style={fontFamilyContent}>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            agni velit exercitationem nihil iure numquam!
+                          </Typography>
+                        </Box>
+
+                        <Box paddingBottom={0.5} paddingTop={0.5}>
+                          <Typography>
+                            <CardRating />
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Stack direction="row" spacing={1}>
+                            <Chip
+                              sx={fontFamilyContent}
+                              style={{
+                                backgroundColor: "rgba(164, 110, 47, 0.7)",
+                              }}
+                              label="Safe"
+                              size="small"
+                            />
+                            <Chip
+                              sx={fontFamilyContent}
+                              variant="outlined"
+                              style={{
+                                borderRadius: 40,
+
+                                backgroundColor: "rgb(120, 209, 161)",
+                              }}
+                              label="Allowed"
+                              size="small"
+                            />
+                          </Stack>
+                        </Box>
                       </Box>
 
                       <Box>
-                        <Button
-                          variant="outlined"
-                          sx={{
-                            borderRadius: 2,
-                            color: "black",
-                            borderColor: "black",
-                            transition: "background-color 0.3s ease-in-out", // Transition background color
-                      "&:hover": {
-                        backgroundColor: "#384040", // Background color on hover
-                        color:"whitesmoke"
-                      }
-                          }}>
-                          Details
-                        </Button>
+                        <Divider orientation="vertical" />
+                      </Box>
+
+                      <Box alignItems={"center"}>
+                        <FavoriteIcon />
+                        <ShareIcon />
+
+                        <LocationOnIcon />
                       </Box>
                     </Box>
+                    <Divider />
+                    <Box
+                      sx={{ p: 2, maxWidth: 580 }}
+                      gap={2}
+                      display={"flex"}
+                      justifyContent={"space-between"}>
+                      <Box display={"flex"} gap={1}>
+                        <Box>
+                          <Button
+                            variant="outlined"
+                            style={fontFamilyContent}
+                            sx={{
+                              borderRadius: 2,
+                              color: "white",
+                              backgroundColor: "#384040",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "transparent", // Background color on hover
+                                color: "black",
+                              },
+                            }}>
+                            Add Place
+                          </Button>
+                        </Box>
 
-                    <Box>
-                      <Typography variant="h5" fontWeight={"bold"}>
-                        $27.70
-                      </Typography>
+                        <Box>
+                          <Button
+                            style={fontFamilyContent}
+                            variant="outlined"
+                            sx={{
+                              borderRadius: 2,
+                              color: "black",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "#384040", // Background color on hover
+                                color: "whitesmoke",
+                              },
+                            }}>
+                            Details
+                          </Button>
+                        </Box>
+                      </Box>
+
+                      <Box display={"flex"}>
+                        <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
+                        <Typography variant="h5" fontWeight={"bold"}>
+                          27.70
+                        </Typography>
+                      </Box>
                     </Box>
-                  </Box>
-                </Card>
-
-                <Card variant="outlined" sx={{ maxWidth: 600 }}>
-                  <Box sx={{ p: 2 }}>
-                    <CardMedia
-                      sx={{ height: 140 }}
-                      image={img1}
-                      title="green iguana"
-                    />
-                    <Stack
-                      direction="row"
-                      sx={{
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                      }}>
-                      <Typography gutterBottom variant="h5" component="div">
-                        Toothbrush
-                      </Typography>
-                      <Typography gutterBottom variant="h6" component="div">
-                        $4.50
-                      </Typography>
-                    </Stack>
-                    <Typography
-                      variant="body2"
-                      sx={{ color: "text.secondary" }}>
-                      Pinstriped cornflower blue cotton blouse takes you on a
-                      walk to the park or just down the hall.
-                    </Typography>
-                  </Box>
-                  <Divider />
-                  <Box sx={{ p: 2 }}>
-                    <Typography gutterBottom variant="body2">
-                      Select type
-                    </Typography>
-                    <Stack direction="row" spacing={1}>
-                      <Chip color="error" label="Soft" size="small" />
-                      <Chip label="Medium" size="small" />
-                      <Chip label="Hard" size="small" />
-                    </Stack>
-                  </Box>
-                </Card>
-
+                  </Card>
+                </Box>
                 
-                
+ {/* --------------------- Third Card ---------------------------*/}
+                <Box >
+                  <Card
+                    variant="elevation"
+                    sx={{
+                      maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
+                      background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                    }}>
+                    <Box sx={{ p: 3 }} display={"flex"} gap={2}>
+                      <Box>
+                        <CardMedia
+                          sx={{
+                            height: 180,
+                            width: 170,
+                            borderRadius: 6,
+                            minHeight: 50,
+                            minWidth: 50,
+                          }}
+                          image={img3}
+                          title="green iguana"
+                        />
+                      </Box>
 
-                
-              </Stack>
-            </Item>
+                      <Box padding={1} gap={2}>
+                        <Box>
+                          <Typography
+                            variant="h4"
+                            align="left"
+                            style={fontFamilyTopic}>
+                            Rivers
+                          </Typography>
+                          <Typography align="left" style={fontFamilyContent}>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            agni velit exercitationem nihil iure numquam!
+                          </Typography>
+                        </Box>
+
+                        <Box paddingBottom={0.5} paddingTop={0.5}>
+                          <Typography>
+                            <CardRating />
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Stack direction="row" spacing={1}>
+                            <Chip
+                              sx={fontFamilyContent}
+                              style={{
+                                backgroundColor: "rgba(164, 110, 47, 0.7)",
+                              }}
+                              label="Safe"
+                              size="small"
+                            />
+                            <Chip
+                              sx={fontFamilyContent}
+                              variant="outlined"
+                              style={{
+                                borderRadius: 40,
+
+                                backgroundColor: "rgb(120, 209, 161)",
+                              }}
+                              label="Allowed"
+                              size="small"
+                            />
+                          </Stack>
+                        </Box>
+                      </Box>
+
+                      <Box>
+                        <Divider orientation="vertical" />
+                      </Box>
+
+                      <Box alignItems={"center"}>
+                        <FavoriteIcon />
+                        <ShareIcon />
+
+                        <LocationOnIcon />
+                      </Box>
+                    </Box>
+                    <Divider />
+                    <Box
+                      sx={{ p: 2, maxWidth: 580 }}
+                      gap={2}
+                      display={"flex"}
+                      justifyContent={"space-between"}>
+                      <Box display={"flex"} gap={1}>
+                        <Box>
+                          <Button
+                            variant="outlined"
+                            style={fontFamilyContent}
+                            sx={{
+                              borderRadius: 2,
+                              color: "white",
+                              backgroundColor: "#384040",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "transparent", // Background color on hover
+                                color: "black",
+                              },
+                            }}>
+                            Add Place
+                          </Button>
+                        </Box>
+
+                        <Box>
+                          <Button
+                            style={fontFamilyContent}
+                            variant="outlined"
+                            sx={{
+                              borderRadius: 2,
+                              color: "black",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "#384040", // Background color on hover
+                                color: "whitesmoke",
+                              },
+                            }}>
+                            Details
+                          </Button>
+                        </Box>
+                      </Box>
+
+                      <Box display={"flex"} alignItems={"center"}>
+                        <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
+                        <Typography variant="h5" fontWeight={"bold"}>
+                          27.70
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Card>
+                </Box>
+
+  {/** -------------------------------- Fourth card ---------------------------------- */}
+                <Box >
+                  <Card
+                    variant="elevation"
+                    sx={{
+                      maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
+                      background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                    }}>
+                    <Box sx={{ p: 3 }} display={"flex"} gap={2}>
+                      <Box>
+                        <CardMedia
+                          sx={{
+                            height: 180,
+                            width: 170,
+                            borderRadius: 6,
+                            minHeight: 50,
+                            minWidth: 50,
+                          }}
+                          image={img4}
+                          title="green iguana"
+                        />
+                      </Box>
+
+                      <Box padding={1} gap={2}>
+                        <Box>
+                          <Typography
+                            variant="h4"
+                            align="left"
+                            style={fontFamilyTopic}>
+                            Lakes 
+                          </Typography>
+                          <Typography align="left" style={fontFamilyContent}>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            agni velit exercitationem nihil iure numquam!
+                          </Typography>
+                        </Box>
+
+                        <Box paddingBottom={0.5} paddingTop={0.5}>
+                          <Typography>
+                            <CardRating />
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Stack direction="row" spacing={1}>
+                            <Chip
+                              sx={fontFamilyContent}
+                              style={{
+                                backgroundColor: "rgba(164, 110, 47, 0.7)",
+                              }}
+                              label="Safe"
+                              size="small"
+                            />
+                            <Chip
+                              sx={fontFamilyContent}
+                              variant="outlined"
+                              style={{
+                                borderRadius: 40,
+
+                                backgroundColor: "rgb(120, 209, 161)",
+                              }}
+                              label="Allowed"
+                              size="small"
+                            />
+                          </Stack>
+                        </Box>
+                      </Box>
+
+                      <Box>
+                        <Divider orientation="vertical" />
+                      </Box>
+
+                      <Box alignItems={"center"}>
+                        <FavoriteIcon />
+                        <ShareIcon />
+
+                        <LocationOnIcon />
+                      </Box>
+                    </Box>
+                    <Divider />
+                    <Box
+                      sx={{ p: 2, maxWidth: 580 }}
+                      gap={2}
+                      display={"flex"}
+                      justifyContent={"space-between"}>
+                      <Box display={"flex"} gap={1}>
+                        <Box>
+                          <Button
+                            variant="outlined"
+                            style={fontFamilyContent}
+                            sx={{
+                              borderRadius: 2,
+                              color: "white",
+                              backgroundColor: "#384040",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "transparent", // Background color on hover
+                                color: "black",
+                              },
+                            }}>
+                            Add Place
+                          </Button>
+                        </Box>
+
+                        <Box>
+                          <Button
+                            style={fontFamilyContent}
+                            variant="outlined"
+                            sx={{
+                              borderRadius: 2,
+                              color: "black",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "#384040", // Background color on hover
+                                color: "whitesmoke",
+                              },
+                            }}>
+                            Details
+                          </Button>
+                        </Box>
+                      </Box>
+
+                      <Box display={"flex"} alignItems={"center"}>
+                        <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
+                        <Typography variant="h5" fontWeight={"bold"}>
+                          27.70
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Card>
+                </Box>
+
+                {/* -------------------------- Fifth card ----------------------------- */}
+
+                <Box >
+                  <Card
+                    variant="elevation"
+                    sx={{
+                      maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
+                      background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                    }}>
+                    <Box sx={{ p: 3 }} display={"flex"} gap={2}>
+                      <Box>
+                        <CardMedia
+                          sx={{
+                            height: 180,
+                            width: 170,
+                            borderRadius: 6,
+                            minHeight: 50,
+                            minWidth: 50,
+                          }}
+                          image={img5}
+                          title="green iguana"
+                        />
+                      </Box>
+
+                      <Box padding={1} gap={2}>
+                        <Box>
+                          <Typography
+                            variant="h4"
+                            align="left"
+                            style={fontFamilyTopic}>
+                            Night-Sky
+                          </Typography>
+                          <Typography align="left" style={fontFamilyContent}>
+                            Lorem ipsum dolor sit, amet consectetur adipisicing
+                            agni velit exercitationem nihil iure numquam!
+                          </Typography>
+                        </Box>
+
+                        <Box paddingBottom={0.5} paddingTop={0.5}>
+                          <Typography>
+                            <CardRating />
+                          </Typography>
+                        </Box>
+                        <Box>
+                          <Stack direction="row" spacing={1}>
+                            <Chip
+                              sx={fontFamilyContent}
+                              style={{
+                                backgroundColor: "rgba(164, 110, 47, 0.7)",
+                              }}
+                              label="Safe"
+                              size="small"
+                            />
+                            <Chip
+                              sx={fontFamilyContent}
+                              variant="outlined"
+                              style={{
+                                borderRadius: 40,
+
+                                backgroundColor: "rgb(120, 209, 161)",
+                              }}
+                              label="Allowed"
+                              size="small"
+                            />
+                          </Stack>
+                        </Box>
+                      </Box>
+
+                      <Box>
+                        <Divider orientation="vertical" />
+                      </Box>
+
+                      <Box alignItems={"center"}>
+                        <FavoriteIcon />
+                        <ShareIcon />
+
+                        <LocationOnIcon />
+                      </Box>
+                    </Box>
+                    <Divider />
+                    <Box
+                      sx={{ p: 2, maxWidth: 580 }}
+                      gap={2}
+                      display={"flex"}
+                      justifyContent={"space-between"}>
+                      <Box display={"flex"} gap={1}>
+                        <Box>
+                          <Button
+                            variant="outlined"
+                            style={fontFamilyContent}
+                            sx={{
+                              borderRadius: 2,
+                              color: "white",
+                              backgroundColor: "#384040",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "transparent", // Background color on hover
+                                color: "black",
+                              },
+                            }}>
+                            Add Place
+                          </Button>
+                        </Box>
+
+                        <Box>
+                          <Button
+                            style={fontFamilyContent}
+                            variant="outlined"
+                            sx={{
+                              borderRadius: 2,
+                              color: "black",
+                              borderColor: "black",
+                              transition: "background-color 0.3s ease-in-out", // Transition background color
+                              "&:hover": {
+                                backgroundColor: "#384040", // Background color on hover
+                                color: "whitesmoke",
+                              },
+                            }}>
+                            Details
+                          </Button>
+                        </Box>
+                      </Box>
+
+                      <Box display={"flex"} alignItems={"center"}>
+                        <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
+                        <Typography variant="h5" fontWeight={"bold"}>
+                          27.70
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Card>
+                </Box>
+
+              
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
       </Box>
