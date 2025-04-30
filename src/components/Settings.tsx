@@ -58,7 +58,7 @@ const fontFamilyTopic = {
 const Settings = () => {
   return (
     <>
-      <h1>SETTINGS PAGE ..</h1>
+      {/* <h1>SETTINGS PAGE ..</h1> */}
       {/* <Typography sx={{ marginBottom: 2 }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
@@ -76,8 +76,10 @@ const Settings = () => {
 
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          <Grid size={2.5}>
-            Filter By:
+          <Grid size={3}>
+            <Typography variant="h5" fontWeight={"bold"} style={fontFamilyTopic}>
+                Filter Pages
+            </Typography>
             <Item>
               <Box padding={1}>
                 <Card
@@ -113,7 +115,7 @@ const Settings = () => {
             </Item>
           </Grid>
 
-          <Grid size={9.5}>
+          <Grid size={9}>
             <Box>
               <Typography>Contents</Typography>
             </Box>
@@ -388,7 +390,7 @@ const Settings = () => {
                       <Box display={"flex"}>
                         <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
                         <Typography variant="h5" fontWeight={"bold"}>
-                          27.70
+                          54.21
                         </Typography>
                       </Box>
                     </Box>
@@ -521,7 +523,7 @@ const Settings = () => {
                       <Box display={"flex"} alignItems={"center"}>
                         <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
                         <Typography variant="h5" fontWeight={"bold"}>
-                          27.70
+                          350.00
                         </Typography>
                       </Box>
                     </Box>
@@ -654,7 +656,7 @@ const Settings = () => {
                       <Box display={"flex"} alignItems={"center"}>
                         <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
                         <Typography variant="h5" fontWeight={"bold"}>
-                          27.70
+                          693.70
                         </Typography>
                       </Box>
                     </Box>
@@ -788,7 +790,7 @@ const Settings = () => {
                       <Box display={"flex"} alignItems={"center"}>
                         <CurrencyRupeeIcon sx={{ fontSize: 29 }} />
                         <Typography variant="h5" fontWeight={"bold"}>
-                          27.70
+                          89.70
                         </Typography>
                       </Box>
                     </Box>
