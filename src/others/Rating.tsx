@@ -52,3 +52,35 @@ export default function HoverRating() {
     </Box></>
   );
 }
+
+
+
+export function CardRating() {
+  const [value, setValue] = React.useState<number | null>(2);
+  const [hover, setHover] = React.useState(-1);
+
+  return (
+  <>
+       
+    <Box sx={{ width: 90, display: 'flex', alignItems: 'center',  }}>
+        
+      <Rating
+      style={{fontSize:17}}
+        name="hover-feedback"
+        value={value}
+        precision={0.5}
+        getLabelText={getLabelText}
+        onChange={(_event, newValue) => {
+          setValue(newValue);
+        }}
+        onChangeActive={(_event, newHover) => {
+          setHover(newHover);
+        }}
+        emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+      />
+      {value !== null && (
+        <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+      )}
+    </Box></>
+  );
+}
