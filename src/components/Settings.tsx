@@ -18,15 +18,14 @@ import BasicRating, { CardRating } from "../others/Rating";
 import CheckboxLabels from "../others/CheckBox";
 import SelectVariants from "../others/SelectVarients";
 import LimitTags from "../others/LimitTags";
-import RadioButtonsGroup from "../others/RadioButton";
+import RadioButtonsGroup, { RowRadioButtonsGroup } from "../others/RadioButton";
 import img1 from "../assets/images (1).jpeg";
 import img2 from "../assets/images (2).jpeg";
-import img3 from "../assets/images (3).jpeg"
-import img4 from "../assets/images.jpeg"
-import img5 from "../assets/download.jpeg"
-import img6 from "../assets/download (1).jpeg"
-import img7 from "../assets/download (2).jpeg"
-
+import img3 from "../assets/images (3).jpeg";
+import img4 from "../assets/images.jpeg";
+import img5 from "../assets/download.jpeg";
+import img6 from "../assets/download (1).jpeg";
+import img7 from "../assets/download (2).jpeg";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
@@ -34,6 +33,11 @@ import cardImg from "../assets/CardBackground.jpg";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import "../styles/Settings.css";
+import VerticalSlider from "../others/VerticalSlider";
+import SelectSmall from "../others/SelectVarients";
+import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
+import ListIcon from '@mui/icons-material/List';
+import FilterListIcon from '@mui/icons-material/FilterList';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -76,73 +80,183 @@ const Settings = () => {
 
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          <Grid size={3}>
-            <Typography variant="h5" fontWeight={"bold"} style={fontFamilyTopic}>
-                Filter Pages
+          <Grid size={2.8}>
+            <Typography paddingBottom={2}
+              variant="h5"
+              fontWeight={"bold"}
+              style={fontFamilyTopic}>
+              Filter Pages
             </Typography>
-            <Item>
-              <Box padding={1}>
-                <Card
-                  sx={{
-                    maxWidth: 440,
-                    alignContent: "center",
-                  }}>
-                  <CardContent>
-                    <Stack>
-                      <LimitTags />
-                      <Typography fontWeight={"bold"} align="left" padding={2}>
-                        Bugdets
-                        <CustomMarks />
+
+            <Box maxWidth={400}>
+              <Card
+                sx={{
+                  maxWidth: 440,
+                  alignContent: "center",
+                  padding: 2,
+                  border: "2px solid rgb(195, 201, 208)",
+                  borderRadius: 5,
+                }}>
+                <CardContent>
+                  <Stack gap={2} alignItems={"center"}>
+                    <LimitTags />
+
+                    <Typography fontWeight={"bold"} align="left">
+                      Cost Range
+                    </Typography>
+                    <CustomMarks />
+                    <Typography fontWeight={"bold"} align="left">
+                      Sort By <br />
+                      <RowRadioButtonsGroup />
+                    </Typography>
+
+                    <Typography fontWeight={"bold"} align="left">
+                      Distance
+                      <SelectSmall />
+                    </Typography>
+                    <Box
+                      width={400}
+                      display={"flex"}
+                      sx={{ justifyContent: "space-evenly" }}>
+                      <Box gap={5}>
+                        <Box>
+                          <Typography
+                            sx={{
+                              fontWeight: "bold",
+                            }}>
+                            Timing
+                          </Typography>
+                        </Box>
+
+                        <Box paddingTop={2}>
+                          {" "}
+                          <VerticalSlider />
+                        </Box>
+                      </Box>
+                      <Box>
+                        <Divider orientation="vertical" />
+                      </Box>
+                      <Box>
+                        <Typography fontWeight={"bold"}>Slots</Typography>
+                        <CheckboxLabels />
+                      </Box>
+                    </Box>
+
+                    <Box width={300} paddingTop={2} >
+                      <Typography align="left" fontWeight={"bold"} paddingBottom={1}>
+                        Select Rating
                       </Typography>
+                      <Stack width={300} alignItems={"center"}>
+                        {" "}
+                        <BasicRating />
+                      </Stack>
+                    </Box>
+                  </Stack>
 
-                      <Typography fontWeight={"bold"} align="left" padding={2}>
-                        Bugdets
-                        <SelectVariants />
-                      </Typography>
-
-                      <CheckboxLabels />
-                      <RadioButtonsGroup />
-                      <BasicRating />
-                    </Stack>
-
-                    <Stack gap={2} paddingTop={2}>
-                      <Button variant="contained">Apply</Button>
-                      <Button variant="outlined">Clear</Button>
-                    </Stack>
-                  </CardContent>
-                </Card>
-              </Box>
-            </Item>
+                  <Stack gap={2} paddingTop={2}>
+                    <Button
+                      variant="contained"
+                      sx={{
+                        position: "relative",
+                        backgroundColor: "#f5f5f5",
+                        color: "#000",
+                        padding: "12px 24px",
+                        borderRadius: "8px",
+                        overflow: "hidden",
+                        // textTransform: 'none',
+                        fontWeight: "bold",
+                      }}>
+                      {/* Circle inside button
+                            <Box
+                              sx={{
+                                position: 'absolute',
+                                width: 150,
+                                height: 150,
+                                backgroundColor: 'black',
+                                borderRadius: '50%',
+                                top: -100,
+                                left: -100, // change to 'right: -100' for other side
+                                zIndex: 0,
+                              }}
+                            /> */}
+                      {/* Top-left black circle */}
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          width: 150,
+                          height: 150,
+                          backgroundColor: "#384040",
+                          borderRadius: "50%",
+                          top: -100,
+                          left: -100,
+                          zIndex: 0,
+                        }}
+                      />
+                      {/* Bottom-right black circle */}
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          width: 200,
+                          height: 200,
+                          backgroundColor: "#384040",
+                          borderRadius: "50%",
+                          bottom: -169,
+                          right: -100,
+                          zIndex: 0,
+                        }}
+                      />
+                      {/* Button content */}
+                      <Box sx={{ position: "relative", zIndex: 1 }} />
+                      Apply
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      sx={{
+                        color: "black",
+                        borderColor: "black",
+                        fontWeight: "bold",
+                      }}>
+                      Clear
+                    </Button>
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Box>
           </Grid>
 
-          <Grid size={9}>
-            <Box>
-              <Typography>Contents</Typography>
+          <Grid size={9.2}>
+            <Box maxWidth={1360} display={"flex"} justifyContent={"space-between"}>
+              <Box>
+              <Typography fontWeight={"bold"} variant="h5" style={fontFamilyTopic} paddingBottom={2}>Contents</Typography>
+              </Box>
+
+              <Box display={"flex"} gap={2}>
+                <FilterListIcon/>
+                <AutoAwesomeMosaicIcon/>
+                
+                
+
+              </Box>
+
             </Box>
             <Grid>
               <Box
+                maxWidth={1700}
+                sx={{ backgroundColor: "ButtonFace" }}
+                paddingTop={2}
                 gap={4}
                 justifyContent={"center"}
                 display={"flex"}
-                flexWrap={"wrap"}
-                sx={{
-                  flexDirection: {
-                    xs: "column",
-                    sm: "column",
-                    md: "row",
-                    lg: "row",
-                    xl: "row",
-                  },
-                }}>
-
-
-    {/*------------------------- First card -------------------------------- */}
-                <Box >
+                flexWrap={"wrap"}>
+                {/*------------------------- First card -------------------------------- */}
+                <Box>
                   <Card
                     variant="elevation"
                     sx={{
                       maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
                       background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                      
+                  borderRadius: 4,
                     }}>
                     <Box sx={{ p: 3 }} display={"flex"} gap={2}>
                       <Box>
@@ -269,14 +383,15 @@ const Settings = () => {
                   </Card>
                 </Box>
 
-  {/*-----------------------Second card ------------------------*/}
+                {/*-----------------------Second card ------------------------*/}
 
-                <Box >
+                <Box>
                   <Card
                     variant="elevation"
                     sx={{
                       maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
                       background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                      borderRadius: 4,
                     }}>
                     <Box sx={{ p: 3 }} display={"flex"} gap={2}>
                       <Box>
@@ -396,14 +511,15 @@ const Settings = () => {
                     </Box>
                   </Card>
                 </Box>
-                
- {/* --------------------- Third Card ---------------------------*/}
-                <Box >
+
+                {/* --------------------- Third Card ---------------------------*/}
+                <Box>
                   <Card
                     variant="elevation"
                     sx={{
                       maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
                       background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                      borderRadius: 4,
                     }}>
                     <Box sx={{ p: 3 }} display={"flex"} gap={2}>
                       <Box>
@@ -530,13 +646,14 @@ const Settings = () => {
                   </Card>
                 </Box>
 
-  {/** -------------------------------- Fourth card ---------------------------------- */}
-                <Box >
+                {/** -------------------------------- Fourth card ---------------------------------- */}
+                <Box>
                   <Card
                     variant="elevation"
                     sx={{
                       maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
                       background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                      borderRadius: 4,
                     }}>
                     <Box sx={{ p: 3 }} display={"flex"} gap={2}>
                       <Box>
@@ -559,7 +676,7 @@ const Settings = () => {
                             variant="h4"
                             align="left"
                             style={fontFamilyTopic}>
-                            Lakes 
+                            Lakes
                           </Typography>
                           <Typography align="left" style={fontFamilyContent}>
                             Lorem ipsum dolor sit, amet consectetur adipisicing
@@ -665,12 +782,13 @@ const Settings = () => {
 
                 {/* -------------------------- Fifth card ----------------------------- */}
 
-                <Box >
+                <Box>
                   <Card
                     variant="elevation"
                     sx={{
                       maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
                       background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
+                      borderRadius: 4,
                     }}>
                     <Box sx={{ p: 3 }} display={"flex"} gap={2}>
                       <Box>
@@ -796,8 +914,6 @@ const Settings = () => {
                     </Box>
                   </Card>
                 </Box>
-
-              
               </Box>
             </Grid>
           </Grid>

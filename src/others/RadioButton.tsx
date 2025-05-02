@@ -21,3 +21,21 @@ export default function RadioButtonsGroup() {
     </FormControl>
   );
 }
+
+export function RowRadioButtonsGroup() {
+  return (
+    <FormControl >
+      <RadioGroup
+        row
+        aria-labelledby="demo-row-radio-buttons-group-label"
+        name="row-radio-buttons-group"
+        
+      >
+        <FormControlLabel value="Latest"  control={<Radio color='success' />} label="Latest" />
+        <FormControlLabel value="Popular" control={<Radio color='success'/>} label="Popular" />
+        <FormControlLabel value="Frequent" control={<Radio color='success'/>} label="Frequent" />
+        
+      </RadioGroup>
+    </FormControl>
+  );
+}

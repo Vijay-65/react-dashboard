@@ -3,16 +3,16 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 
-const MAX = 100;
-const MIN = 0;
+const MAX = 8000;
+const MIN = 100;
 const marks = [
   {
     value: MIN,
-    label: '',
+    label: '100 rs',
   },
   {
     value: MAX,
-    label: '',
+    label: '8000 rs',
   },
 ];
 
@@ -23,8 +23,8 @@ export default function CustomMarks() {
   };
 
   return (
-    <Box sx={{ width: 250 }}>
-      <Slider
+    <Box sx={{ Width: 300 }}>
+      <Slider sx={{color:'#384040', width:250}}
         marks={marks}
         step={10}
         value={val}
@@ -32,6 +32,7 @@ export default function CustomMarks() {
         min={MIN}
         max={MAX}
         onChange={handleChange}
+        
       />
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography
@@ -39,14 +40,14 @@ export default function CustomMarks() {
           onClick={() => setVal(MIN)}
           sx={{ cursor: 'pointer' }}
         >
-          {MIN} min
+          {/* {MIN} min */}
         </Typography>
         <Typography
           variant="body2"
           onClick={() => setVal(MAX)}
           sx={{ cursor: 'pointer' }}
         >
-          {MAX} max
+          {/* {MAX} max */}
         </Typography>
       </Box>
     </Box>

@@ -1,10 +1,11 @@
-import * as React from 'react';
+
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
 export default function LimitTags() {
   return (
     <Autocomplete
+      size='small'
       multiple
       limitTags={2}
       id="multiple-limit-tags"

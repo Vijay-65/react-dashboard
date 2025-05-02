@@ -28,9 +28,7 @@ export default function HoverRating() {
 
   return (
   <>
-        <Typography fontSize={17} fontWeight={"bold"} align='left' padding={2}>
-            Select Rating 
-        </Typography>
+        
     <Box sx={{ width: 200, display: 'flex', alignItems: 'center' }}>
         
       <Rating
