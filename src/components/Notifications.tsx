@@ -1,4 +1,5 @@
 import Typography from "@mui/material/Typography";
+import HorizontalLinearStepper from "../others/HorizontalLinearStepper";
 
 const Notifications = () => {
   return (
@@ -18,6 +19,8 @@ const Notifications = () => {
         varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt.
         Lorem donec massa sapien faucibus et molestie ac. NOTIFICATION PAGE ....
       </Typography>
+
+      <HorizontalLinearStepper/>
     </>
   );
 };

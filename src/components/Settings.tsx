@@ -35,9 +35,9 @@ import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import "../styles/Settings.css";
 import VerticalSlider from "../others/VerticalSlider";
 import SelectSmall from "../others/SelectVarients";
-import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
-import ListIcon from '@mui/icons-material/List';
-import FilterListIcon from '@mui/icons-material/FilterList';
+import AutoAwesomeMosaicIcon from "@mui/icons-material/AutoAwesomeMosaic";
+import ListIcon from "@mui/icons-material/List";
+import FilterListIcon from "@mui/icons-material/FilterList";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -81,7 +81,8 @@ const Settings = () => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid size={2.8}>
-            <Typography paddingBottom={2}
+            <Typography
+              paddingBottom={2}
               variant="h5"
               fontWeight={"bold"}
               style={fontFamilyTopic}>
@@ -142,8 +143,11 @@ const Settings = () => {
                       </Box>
                     </Box>
 
-                    <Box width={300} paddingTop={2} >
-                      <Typography align="left" fontWeight={"bold"} paddingBottom={1}>
+                    <Box width={300} paddingTop={2}>
+                      <Typography
+                        align="left"
+                        fontWeight={"bold"}
+                        paddingBottom={1}>
                         Select Rating
                       </Typography>
                       <Stack width={300} alignItems={"center"}>
@@ -225,19 +229,24 @@ const Settings = () => {
           </Grid>
 
           <Grid size={9.2}>
-            <Box maxWidth={1360} display={"flex"} justifyContent={"space-between"}>
+            <Box
+              maxWidth={1360}
+              display={"flex"}
+              justifyContent={"space-between"}>
               <Box>
-              <Typography fontWeight={"bold"} variant="h5" style={fontFamilyTopic} paddingBottom={2}>Contents</Typography>
+                <Typography
+                  fontWeight={"bold"}
+                  variant="h5"
+                  style={fontFamilyTopic}
+                  paddingBottom={2}>
+                  Contents
+                </Typography>
               </Box>
 
               <Box display={"flex"} gap={2}>
-                <FilterListIcon/>
-                <AutoAwesomeMosaicIcon/>
-                
-                
-
+                <FilterListIcon />
+                <AutoAwesomeMosaicIcon />
               </Box>
-
             </Box>
             <Grid>
               <Box
@@ -255,8 +264,8 @@ const Settings = () => {
                     sx={{
                       maxWidth: 600 /* backgroundImage:`url(${cardImg})` */,
                       background: `linear-gradient(135deg, #add8e6 5%, white 30%, white 70%, #add8e6 95% )`,
-                      
-                  borderRadius: 4,
+
+                      borderRadius: 4,
                     }}>
                     <Box sx={{ p: 3 }} display={"flex"} gap={2}>
                       <Box>
