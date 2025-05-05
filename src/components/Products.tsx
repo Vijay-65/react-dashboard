@@ -1,12 +1,14 @@
 import Typography from "@mui/material/Typography";
 import FormDialog from "../others/PopupDialog";
 import ImageUploadPopup from "../others/ImageUpload";
+import DocumentUploadPopup from "../others/DocumentUpload";
+import AadharUploadField from "../others/UploadFields";
 
 const Products = () => {
   return (
     <>
       <h1>PRODUCTS PAGE..</h1>
-      <Typography sx={{ marginBottom: 2 }}>
+      {/* <Typography sx={{ marginBottom: 2 }}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus
         non enim praesent elementum facilisis leo vel. Risus at ultrices mi
@@ -21,7 +23,10 @@ const Products = () => {
         Lorem donec massa sapien faucibus et molestie ac.
       </Typography>
       <FormDialog/>
-      <ImageUploadPopup/>
+      <DocumentUploadPopup/> */}
+      {/* <ImageUploadPopup/> */}
+
+      <AadharUploadField />
     </>
   );
 };

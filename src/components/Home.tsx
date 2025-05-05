@@ -24,6 +24,7 @@ import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
+import SelfPopup from "../others/SelfPopup";
 
 
 
@@ -36,6 +37,7 @@ const fontStyle = {
 const Home = () => {
   return (
     <>
+    <SelfPopup/>
       <Typography variant="h4" component={"div"} align="center" padding={3} fontStyle={"oblique"} fontWeight={"bold"}>
         Welcome to Dashboard ! 
       </Typography>
