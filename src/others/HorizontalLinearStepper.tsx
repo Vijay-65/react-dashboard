@@ -629,9 +629,7 @@ export default function HorizontalLinearStepper() {
               </Box>
             </Box>
 
-            <Box maxWidth={1500} padding={3}>
-              <DeclarationSection />
-            </Box>
+            
           </>
         );
 
@@ -719,6 +717,10 @@ export default function HorizontalLinearStepper() {
                   )}
                 </Stack>
               </Box>
+
+              <Box maxWidth={1500} padding={3}>
+              <DeclarationSection />
+            </Box>
             </Box>
           </>
         );
