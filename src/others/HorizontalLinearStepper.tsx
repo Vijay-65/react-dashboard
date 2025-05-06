@@ -21,7 +21,13 @@ import {
   StepButton,
   Paper,
   styled,
+  Alert,
+  Snackbar,
 } from "@mui/material";
+import PersonIcon from '@mui/icons-material/Person';
+import SchoolIcon from '@mui/icons-material/School';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 import Person2Icon from "@mui/icons-material/Person2";
 import CallIcon from "@mui/icons-material/Call";
@@ -36,26 +42,12 @@ const steps = [
   "Education Qualification",
   "Bank Account Information",
   "Review & Submit",
+  
 ];
 
 
 
 export default function HorizontalLinearStepper() {
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: (theme ?? theme).palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
-
-
-
 
 
 
@@ -79,7 +71,7 @@ const Item = styled(Paper)(({ theme }) => ({
     branch: "",
     panNum: "",
     aadharNum: "",
-    uploadedIdPreview:""
+    uploadedIdPreview: "",
   });
 
   const [completed, setCompleted] = React.useState<{
@@ -103,48 +95,40 @@ const Item = styled(Paper)(({ theme }) => ({
   };
 
   const handleNext = () => {
+    
+
+  if (activeStep === steps.length - 1) {
+      setShowSuccess(true); // 🎉 Just show the popup
+      return;
+    }
+  
     const newActiveStep =
-      isLastStep() && !allStepsCompleted()
-        ? // It's the last step, but not all steps have been completed,
-          // find the first step that has been completed
-          steps.findIndex((step, i) => !(i in completed))
+      isLastStep() && !completed[activeStep]
+        ? steps.findIndex((step, i) => !(i in completed))
         : activeStep + 1;
+  
     setActiveStep(newActiveStep);
+  
+    
   };
+  
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleStep = (step: number) => () => {
-    setActiveStep(step);
-  };
+  const [submitted, setSubmitted] = React.useState(false);
+  const [showSuccess, setShowSuccess] = React.useState(false);
+  
 
-  const handleComplete = () => {
-    setCompleted({
-      ...completed,
-      [activeStep]: true,
-    });
-    handleNext();
-  };
+ 
 
   const handleReset = () => {
     setActiveStep(0);
-    setCompleted({});
+    
+      setCompleted({});
+      setSubmitted(false);
   };
-
-  // const handleNext = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  // };
-
-  // const handleBack = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  // };
-
-  // const handleReset = () => {
-  //   setFormData({ name: "", age: "", email: "", phone: "" });
-  //   setActiveStep(0);
-  // };
 
   const renderStepContent = (step: number) => {
     switch (step) {
@@ -653,100 +637,89 @@ const Item = styled(Paper)(({ theme }) => ({
 
       case 3:
         return (
-          // <>
-          //   <Typography variant="h6">Review Details:</Typography>
-          //   <Typography>First Name : {formData.firstName}</Typography>
-          //   <Typography>Last Name : {formData.lastName}</Typography>
-          //   <Typography>Date of Birth : {formData.dob}</Typography>
-          //   <Typography>Gender : </Typography>
-          //   <Typography>Father's Name : {formData.FatherName}</Typography>
-          //   <Typography>Email ID : {formData.email}</Typography>
-          //   <Typography>Phone Number : {formData.phno}</Typography>
-          //   <Typography>Qualifiication : </Typography>
-          //   <Typography>Specialization : {formData.email}</Typography>
-          //   <Typography>Bank Name : {formData.bankName}</Typography>
-          //   <Typography>Account Number : {formData.accNum}</Typography>
-          //   <Typography>IFSC code : {formData.ifsc}</Typography>
-          //   <Typography>Branch : {formData.branch}</Typography>
-          // </>
-
           <>
-         
-  <Box p={3} >
-    <Typography variant="h5" fontWeight="bold" gutterBottom pb={2} >
-      Review Your Details
-    </Typography>
+            <Box p={3}>
+              <Typography variant="h5" fontWeight="bold" gutterBottom pb={2}>
+                Review Your Details
+              </Typography>
 
-    <Box
-    paddingLeft={10}
-      display="flex"
-      flexDirection={{ xs: 'column', md: 'row' }}
-      justifyContent="space-evenly"
-      
-      
-    >
-      {/* Left Column */}
-      <Stack spacing={2} flex={1}>
-        <Box>
-          <Typography variant="h6" fontWeight="bold" pb={1}>Personal Information</Typography>
-          <Box pl={2}>
-          <Typography>First Name: {formData.firstName}</Typography>
-          <Typography>Last Name: {formData.lastName}</Typography>
-          <Typography>Date of Birth: {formData.dob}</Typography>
-          <Typography>Gender: {formData.gender}</Typography></Box>
-        </Box>
+              <Box
+                paddingLeft={10}
+                display="flex"
+                flexDirection={{ xs: "column", md: "row" }}
+                justifyContent="space-evenly">
+                {/* Left Column */}
+                <Stack spacing={2} flex={1}>
+                  <Box>
+                    <Typography variant="h6" fontWeight="bold" pb={1}>
+                      Personal Information
+                    </Typography>
+                    <Box pl={2}>
+                      <Typography>First Name: {formData.firstName}</Typography>
+                      <Typography>Last Name: {formData.lastName}</Typography>
+                      <Typography>Date of Birth: {formData.dob}</Typography>
+                      <Typography>Gender: {formData.gender}</Typography>
+                    </Box>
+                  </Box>
 
-        {/* <Box>
-          <Typography variant="subtitle2" fontWeight="medium">Address</Typography>
-          <Typography>Address 1: {formData.address1}</Typography>
-          <Typography>Address 2: {formData.address2}</Typography>
-          <Typography>City: {formData.city}</Typography>
-          <Typography>State: {formData.state}</Typography>
-          <Typography>Pin Code: {formData.pincode}</Typography>
-        </Box> */}
+                  <Box>
+                    <Typography variant="h6" fontWeight="bold" pb={1}>
+                      Proof Details
+                    </Typography>
+                    <Box pl={2}>
+                      <Typography>PAN Number: {formData.panNum}</Typography>
+                      <Typography>
+                        Aadhar Number: {formData.aadharNum}
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Stack>
 
-        <Box>
-          <Typography variant="h6" fontWeight="bold" pb={1}>Proof Details</Typography>
-          <Box pl={2}>
-          <Typography>PAN Number: {formData.panNum}</Typography>
-          <Typography>Aadhar Number: {formData.aadharNum}</Typography></Box>
-        </Box>
-      </Stack>
+                {/* Right Column */}
+                <Stack spacing={2} flex={1}>
+                  <Box>
+                    <Typography variant="h6" fontWeight="bold" pb={1}>
+                      Contact Information
+                    </Typography>
+                    <Box pl={2}>
+                      <Typography>Email: {formData.email}</Typography>
+                      <Typography>Phone: {formData.phno}</Typography>
+                    </Box>
+                  </Box>
 
-      {/* Right Column */}
-      <Stack spacing={2} flex={1}>
-        <Box>
-          <Typography variant="h6"  fontWeight="bold" pb={1}>Contact Information</Typography>
-          <Box pl={2}>
-          <Typography>Email: {formData.email}</Typography>
-          <Typography>Phone: {formData.phno}</Typography></Box>
-        </Box>
+                  <Box>
+                    <Typography variant="h6" fontWeight="bold" pb={1}>
+                      Bank Information
+                    </Typography>
+                    <Box pl={2}>
+                      <Typography>Bank Name: {formData.bankName}</Typography>
+                      <Typography>Account Number: {formData.accNum}</Typography>
+                      <Typography>IFSC Code: {formData.ifsc}</Typography>
+                    </Box>
+                    {/* <Typography>Account Holder: {formData.ac}</Typography> */}
+                  </Box>
 
-        <Box>
-          <Typography variant="h6" fontWeight="bold" pb={1}>Bank Information</Typography>
-          <Box pl={2}>
-          <Typography>Bank Name: {formData.bankName}</Typography>
-          <Typography>Account Number: {formData.accNum}</Typography>
-          <Typography>IFSC Code: {formData.ifsc}</Typography></Box>
-          {/* <Typography>Account Holder: {formData.ac}</Typography> */}
-        </Box>
-
-        {formData.uploadedIdPreview && (
-          <Box>
-            <Typography variant="subtitle2" fontWeight="medium">Uploaded Document</Typography>
-            <Box
-              component="img"
-              src={formData.uploadedIdPreview}
-              alt="ID Document"
-              sx={{ width: '100%', maxWidth: 300, borderRadius: 2, mt: 1 }}
-            />
-          </Box>
-        )}
-      </Stack>
-    </Box>
-  </Box>
-
-
+                  {formData.uploadedIdPreview && (
+                    <Box>
+                      <Typography variant="subtitle2" fontWeight="medium">
+                        Uploaded Document
+                      </Typography>
+                      <Box
+                        component="img"
+                        src={formData.uploadedIdPreview}
+                        alt="ID Document"
+                        sx={{
+                          width: "100%",
+                          maxWidth: 300,
+                          borderRadius: 2,
+                          mt: 1,
+                        }}
+                      />
+                    </Box>
+                  )}
+                </Stack>
+              </Box>
+            </Box>
           </>
         );
 
@@ -758,7 +731,7 @@ const Item = styled(Paper)(({ theme }) => ({
   return (
     <Box justifyContent={"center"} minHeight={100 + "vh"} display={"flex"}>
       <Box sx={{ width: "85%" }}>
-        <Stepper nonLinear activeStep={activeStep} alternativeLabel>
+        {/* <Stepper nonLinear activeStep={activeStep} alternativeLabel>
           {steps.map((label, index) => (
             <Step key={label} completed={completed[index]}>
               <StepButton color="inherit" onClick={handleStep(index)}>
@@ -766,12 +739,89 @@ const Item = styled(Paper)(({ theme }) => ({
               </StepButton>
             </Step>
           ))}
-        </Stepper>
+        </Stepper> */}
+
+{/* <Stepper activeStep={activeStep} alternativeLabel>
+  <Step completed={completed[0]}>
+    <StepLabel icon={<PersonIcon />}>Basic Info</StepLabel>
+  </Step>
+  <Step completed={completed[1]}>
+    <StepLabel icon={<SchoolIcon />}>Education</StepLabel>
+  </Step>
+  <Step completed={completed[2]}>
+    <StepLabel icon={<AccountBalanceIcon />}>Bank Info</StepLabel>
+  </Step>
+  <Step completed={completed[3]}>
+    <StepLabel icon={<CheckCircleIcon />}>Review</StepLabel>
+  </Step>
+</Stepper> */}
+
+
+{/* <Stepper activeStep={activeStep} alternativeLabel>
+  {steps.map((label, index) => (
+    <Step key={label} completed={completed[index]}>
+      <StepLabel
+        icon={
+          index === 0 ? <PersonIcon /> :
+          index === 1 ? <SchoolIcon /> :
+          index === 2 ? <AccountBalanceIcon /> :
+          <CheckCircleIcon />
+        }
+        onClick={() => setActiveStep(index)} // 👈 This restores click
+        sx={{ cursor: 'pointer' }}           // 👈 Cursor pointer for UX
+      >
+        {label}
+      </StepLabel>
+    </Step>
+  ))}
+</Stepper> */}
+
+
+<Stepper activeStep={activeStep} alternativeLabel>
+  {steps.map((label, index) => {
+    const isActive = activeStep === index;
+    const isCompleted = completed[index];
+
+    const iconStyle = {
+      color: isActive
+        ? '#43cea2' // Active color
+        : isCompleted
+        ? '#185a9d' // Completed color
+        : '#ccc',   // Default gray
+      fontSize: 30,
+    };
+
+    return (
+      <Step key={label} completed={isCompleted}>
+        <StepLabel
+          icon={
+            index === 0 ? <PersonIcon sx={iconStyle} /> :
+            index === 1 ? <SchoolIcon sx={iconStyle} /> :
+            index === 2 ? <AccountBalanceIcon sx={iconStyle} /> :
+            <CheckCircleIcon sx={iconStyle} />
+          }
+          onClick={() => setActiveStep(index)}
+          sx={{
+            cursor: 'pointer',
+            '& .MuiStepLabel-label': {
+              color: isActive ? '#43cea2' : isCompleted ? '#185a9d' : '#999',
+              fontWeight: isActive ? 'bold' : 'normal',
+            }
+          }}
+        >
+          {label}
+        </StepLabel>
+      </Step>
+    );
+  })}
+</Stepper>
+
+        
 
         {activeStep === steps.length ? (
           <React.Fragment>
             <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed – your data is submitted!
+              All steps completed - your data is submitted!
             </Typography>
             <Button onClick={handleReset}>Reset</Button>
           </React.Fragment>
@@ -781,18 +831,73 @@ const Item = styled(Paper)(({ theme }) => ({
 
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
               <Button
+                sx={{
+                  textTransform: "none",
+                  px: 4,
+                  py: 1,
+                  borderRadius: "8px",
+                  background:
+                    "linear-gradient(90deg,rgb(197, 160, 118),rgb(212, 137, 62))", // Soft red gradient
+                  color: "white",
+                  fontWeight: "bold",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  boxShadow: "0 4px 12px rgba(16, 14, 14, 0.2)",
+                  "&:hover": {
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 8px 24px rgba(213, 191, 47, 0.4)", // Slightly different hover effect color
+                  },
+                  "&:active": {
+                    transform: "scale(0.98)",
+                  },
+                }}
                 color="inherit"
                 disabled={activeStep === 0}
-                onClick={handleBack}
-                sx={{ mr: 1 }}>
+                onClick={handleBack}>
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
 
-              <Button onClick={handleNext}>
-                {activeStep === steps.length - 1 ? "Finish" : "Next"}
+              <Button
+                onClick={handleNext} 
+                sx={{
+                  textTransform: "none",
+                  px: 4,
+                  py: 1,
+                  borderRadius: "8px",
+                  background: "linear-gradient(90deg, #43cea2, #185a9d)",
+                  color: "white",
+                  fontWeight: "bold",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+                  "&:hover": {
+                    transform: "translateY(-2px)",
+                    boxShadow: "0 8px 24px rgba(24, 90, 157, 0.4)",
+                  },
+                  "&:active": {
+                    transform: "scale(0.98)",
+                  },
+                }}>
+                {activeStep === steps.length-1 ? "Submit" : "Next"}
+
               </Button>
+              
             </Box>
+            
+              <Snackbar
+                  open={showSuccess}
+                  autoHideDuration={3000}
+                  onClose={() => setShowSuccess(false)}
+                  anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                >
+                  <Alert
+                    onClose={() => setShowSuccess(false)}
+                    severity="success"
+                    variant="filled"
+                    sx={{ width: "100%" }}
+                  >
+                    🎉 Form submitted successfully!
+                  </Alert>
+                </Snackbar>
           </React.Fragment>
         )}
       </Box>

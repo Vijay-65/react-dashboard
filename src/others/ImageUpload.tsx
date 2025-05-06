@@ -350,7 +350,19 @@ export default function ImgUploadPopup() {
 
       {/* Button that triggers the popup */}
       <Box >
-      <Button  onClick={() => setOpen(true)}>
+      <Button  onClick={() => setOpen(true)}
+        sx={{
+          borderRadius: 2,
+          color: "white",
+          backgroundColor: "#384040",
+          borderColor: "black",
+          transition: "background-color 0.3s ease-in-out", // Transition background color
+          "&:hover": {
+            backgroundColor: "transparent", // Background color on hover
+            color: "black",
+          },
+        }}
+        >
         Upload 
       </Button></Box>
 
@@ -387,7 +399,19 @@ export default function ImgUploadPopup() {
               onChange={handleFileChange}
             />
 
-            <Button variant="outlined" component="span">
+            <Button variant="outlined" component="span"
+            sx={{
+              borderRadius: 2,
+              color: "white",
+              backgroundColor: "#364040",
+              borderColor: "black",
+              transition: "background-color 0.3s ease-in-out", // Transition background color
+              "&:hover": {
+                backgroundColor: "transparent", // Background color on hover
+                color: "black",
+              },
+            }}
+            >
               Choose File
             </Button>
 
@@ -420,11 +444,34 @@ export default function ImgUploadPopup() {
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={handleDialogClose}>Close</Button>
+          <Button onClick={handleDialogClose}
+          sx={{
+            borderRadius: 2,
+            color: "black",
+            backgroundColor: "transparent",
+            borderColor: "white",
+            transition: "background-color 0.3s ease-in-out", // Transition background color
+            "&:hover": {
+              backgroundColor: "rgb(197, 116, 116)", // Background color on hover
+              color: "white",
+            },
+          }}
+          >Close</Button>
           <Button
             variant="contained"
             onClick={handleUpload}
             disabled={!selectedFile || uploadStatus === 'uploaded'}
+            sx={{
+              borderRadius: 2,
+              color: "white",
+              backgroundColor: "#783580",
+              borderColor: "black",
+              transition: "background-color 0.3s ease-in-out", // Transition background color
+              "&:hover": {
+                backgroundColor: "transparent", // Background color on hover
+                color: "black",
+              },
+            }}
           >
             Upload
           </Button>

@@ -53,7 +53,19 @@ export default function UploadField() {
           value={photoFile ? photoFile.name : ""}
           InputProps={{ readOnly: true }}
         />
-        <Button variant="contained" onClick={() => handleOpenDialog("photo")}>
+        <Button variant="contained" onClick={() => handleOpenDialog("photo")}
+          sx={{
+            borderRadius: 2,
+            color: "white",
+            backgroundColor: "#384040",
+            borderColor: "black",
+            transition: "background-color 0.3s ease-in-out", // Transition background color
+            "&:hover": {
+              backgroundColor: "transparent", // Background color on hover
+              color: "black",
+            },
+          }}
+          >
           Upload
         </Button>
       </Box>
@@ -67,7 +79,19 @@ export default function UploadField() {
           value={idFile ? idFile.name : ""}
           InputProps={{ readOnly: true }}
         />
-        <Button variant="contained" onClick={() => handleOpenDialog("id")}>
+        <Button variant="outlined"  onClick={() => handleOpenDialog("id")}
+          sx={{
+            borderRadius: 2,
+            color: "white",
+            backgroundColor: "#384040",
+            borderColor: "black",
+            transition: "background-color 0.3s ease-in-out", // Transition background color
+            "&:hover": {
+              backgroundColor: "transparent", // Background color on hover
+              color: "black",
+            },
+          }}
+          >
           Upload
         </Button>
       </Box>
@@ -99,8 +123,32 @@ export default function UploadField() {
           ) : null}
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setPopupOpen(false)}>Cancel</Button>
-          <Button onClick={handleUpload} variant="contained">
+          <Button onClick={() => setPopupOpen(false)}
+            sx={{
+              borderRadius: 2,
+              color: "black",
+              backgroundColor: "transparent",
+              borderColor: "white",
+              transition: "background-color 0.3s ease-in-out", // Transition background color
+              "&:hover": {
+                backgroundColor: "rgb(197,116,116)", // Background color on hover
+                color: "white",
+              },
+            }}
+            >Cancel</Button>
+          <Button onClick={handleUpload} variant="contained"
+          sx={{
+            borderRadius: 2,
+            color: "white",
+            backgroundColor: "#384080",
+            borderColor: "black",
+            transition: "background-color 0.3s ease-in-out", // Transition background color
+            "&:hover": {
+              backgroundColor: "transparent", // Background color on hover
+              color: "black",
+            },
+          }}
+          >
             Upload
           </Button>
         </DialogActions>
